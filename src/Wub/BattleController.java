@@ -14,6 +14,7 @@ public Button makeAttackButton;
 
 Game game = Main.instance.game;
 
+
 public void initialize(){
     pstr.setText("STR: "+Integer.toString(game.player.STR));
     pend.setText("END: " + Integer.toString(game.player.END));
@@ -26,10 +27,11 @@ public void initialize(){
     battletext.setText("Вы видите врага.");
 
     makeAttackButton.setOnAction(e -> {
-        battletext.setText("Вы нанесли "+Integer.toString(game.player.attack(game.enemy))+ " единиц урона" );
+        String n = battletext.getText();
+        battletext.setText(n+"\nВы нанесли "+Integer.toString(game.player.attack(game.enemy))+ " единиц урона" );
         ecurrhp.setText("HP: " + Integer.toString(game.enemy.CurrHP));
     if (game.enemy.isAlive == false){
-        battletext.setText("Враг сдох.");
+        battletext.setText(n+"\nВраг сдох.");
     }
     });
 
