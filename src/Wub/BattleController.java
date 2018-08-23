@@ -1,6 +1,7 @@
 package Wub;
 
 import Wub.Main;
+import Wub.Battle;
 import javafx.scene.control.*;
 
 public class BattleController {
@@ -11,6 +12,7 @@ public Label estr;
 public Label eend;
 public Label ecurrhp;
 public Label battletext;
+public Button makeAttackButton;
 
 Game game = Main.instance.game;
 
@@ -24,6 +26,13 @@ public void initialize(){
     ecurrhp.setText("HP: " + Integer.toString(game.enemy.CurrHP));
 
     battletext.setText("Вы видите врага.");
+
+    makeAttackButton.setOnAction(e -> {game.player.attack();
+    ecurrhp.setText("HP: " + Integer.toString(game.enemy.CurrHP));
+    if (game.enemy.isAlive == false){
+        battletext.setText("Враг сдох.");
+    }
+    });
 
 }
 }

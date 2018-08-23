@@ -5,6 +5,7 @@ public class Game {
     static Player player = new Player();
     static Enemy enemy = new Enemy();
 
+
      public void startGame(){
          enemy.createCharacter();
          player.createCharacter();

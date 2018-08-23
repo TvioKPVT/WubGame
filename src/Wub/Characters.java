@@ -41,4 +41,5 @@ class Enemy extends Characters {
         return n;
     }
 
+
 }
