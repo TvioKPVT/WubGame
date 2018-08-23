@@ -85,6 +85,38 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1966508589">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="11" />
+          <entry key="java" value="379" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="379" />
+          <entry key="PLAIN_TEXT" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
@@ -94,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="680">
+              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,13 +136,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Wub/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/Wub/BattleSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="323">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
-                <element signature="e#101#102#0" expanded="true" />
-                <element signature="e#140#141#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Characters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,8 +163,8 @@
         <entry file="file://$PROJECT_DIR$/src/Wub/sample.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+            <state relative-caret-position="170">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -152,24 +183,33 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/sample/Dice.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Characters.java" />
-        <option value="$PROJECT_DIR$/src/Wub/Main.java" />
         <option value="$PROJECT_DIR$/src/Wub/Characters.java" />
-        <option value="$PROJECT_DIR$/src/Wub/Controller.java" />
         <option value="$PROJECT_DIR$/src/Wub/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/Wub/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Wub/Main.java" />
+        <option value="$PROJECT_DIR$/src/Wub/BattleScene.java" />
+        <option value="$PROJECT_DIR$/src/Wub/BattleSceneController.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1940" />
-    <option name="height" value="1100" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -178,22 +218,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="FirstGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FirstGame" type="462c0819:PsiDirectoryNode" />
+              <item name="WubGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WubGame" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="FirstGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FirstGame" type="462c0819:PsiDirectoryNode" />
+              <item name="WubGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WubGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="FirstGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FirstGame" type="462c0819:PsiDirectoryNode" />
+              <item name="WubGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WubGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Wub" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -201,8 +243,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,9 +254,11 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534365129367" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534860917241" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHubDesktop/GitHubDesktop.exe" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -320,8 +362,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21108742" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -330,18 +373,18 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32962447" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -368,10 +411,17 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/Dice.java" />
+    <entry file="file://$PROJECT_DIR$/src/Wub/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="680">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -380,8 +430,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/Characters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -391,18 +441,17 @@
     <entry file="file://$PROJECT_DIR$/src/Wub/sample.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+        <state relative-caret-position="170">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Wub/BattleSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="323">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
-            <element signature="e#101#102#0" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
