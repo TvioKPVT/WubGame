@@ -11,11 +11,16 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
-    static Game game;
+    public Game game;
+    public static Main instance;
 
-    public static void main(String[] args) {
+    public Main() {
+        instance = this;
         game = new Game();
         game.startGame();
+    }
+
+    public static void main(String[] args) {
         launch(args);
     }
 
