@@ -7,37 +7,27 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+
+
+
 public class Main extends Application {
-    static Dice dice = new Dice();
-    static Player player = new Player();
-    static Enemy enemy = new Enemy();
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
-
+    static Game game;
 
     public static void main(String[] args) {
-        enemy.createCharacter();
-        player.createCharacter();
-
+        game = new Game();
+        game.startGame();
         launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        primaryStage.setTitle("Заебись игра");
+        primaryStage.setScene(new Scene(root,640, 480));
+        primaryStage.show();
+
+
+
     }
 }

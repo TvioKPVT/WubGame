@@ -4,12 +4,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.BattleSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.Controller">
    <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="338.0" prefWidth="100.0">
          <children>
-            <Label fx:id="pstr" />
+            <Label fx:id="pstr" text="Label" />
+            <Label fx:id="pend" text="Label" />
+            <Label fx:id="pcurrhp" text="Label" />
          </children>
       </VBox>
    </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="estr" text="Label" />
+            <Label fx:id="eend" text="Label" />
+            <Label fx:id="ecurrhp" text="Label" />
+         </children></VBox>
+   </right>
 </BorderPane>

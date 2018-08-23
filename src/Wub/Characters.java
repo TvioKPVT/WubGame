@@ -1,9 +1,9 @@
 package Wub;
 
 
-import static Wub.Main.dice;
-import static Wub.Main.enemy;
-import static Wub.Main.player;
+import static Wub.Game.dice;
+import static Wub.Game.enemy;
+import static Wub.Game.player;
 
 
 //Характеристики персонажей в игре.
@@ -15,8 +15,8 @@ public  class Characters {
     boolean isAlive=true;
 
     public void createCharacter(){
-        STR = dice.d310;
-        END = dice.d310;
+        STR = dice.d310();
+        END = dice.d310();
         HP = (STR+END)*2;
         CurrHP = HP;
 

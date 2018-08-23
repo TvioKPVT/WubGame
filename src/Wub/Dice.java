@@ -4,7 +4,6 @@ package Wub;
 import java.util.Random;
 
 public class Dice {
-    public int d310;
     Random random = new Random();
 
     public int d310(){
