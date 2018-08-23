@@ -26,13 +26,6 @@
             <Label fx:id="ecurrhp" text="Label" />
          </children></VBox>
    </right>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="battletext" text="Label" />
-         </children>
-      </VBox>
-   </center>
    <bottom>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -49,4 +42,11 @@
          </children>
       </GridPane>
    </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="battletext" text="Label" />
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
