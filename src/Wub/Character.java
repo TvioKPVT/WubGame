@@ -11,7 +11,7 @@ public class Character {
     boolean cave = false;
 
     private Dice dice = new Dice();
-
+    //создание персонажей
     public void createCharacter(){
         STR = dice.d310();
         END = dice.d310();
@@ -21,6 +21,7 @@ public class Character {
         cave = false;
 
     }
+    //высчет текущего процента хп для прогрессбара
      public double percentHP(){
         double n=this.HP/100.0;
         double c=this.CurrHP/n;
@@ -28,12 +29,25 @@ public class Character {
         return a;
 
      }
-
+    //атака
     public int attack(Character target) {
         int n = this.STR*2;
         target.CurrHP -= n;
 
         if (target.CurrHP <= 0) target.isAlive = false;
+        return n;
+    }
+
+    public int heal(){
+        int n = (dice.d310()*2);
+        if (this.CurrHP+n<=this.HP) {
+            this.CurrHP = this.CurrHP + n;
+        }
+        else{
+            n = this.HP-this.CurrHP;
+            this.CurrHP = this.HP;
+        }
+
         return n;
     }
 }

@@ -10,13 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LocationController {
+public class CavesController {
     public Label pstr;
     public Label pend;
     public Label pcurrhp;
     public Label loctext;
     public Button enterthebattle;
-    public Button gotocave;
     public Button explore;
     public ProgressBar playerhp;
 
@@ -34,17 +33,12 @@ public class LocationController {
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
 
-        if (game.player.cave== false){
-            gotocave.setVisible(false);
-        }
-        else{
-            gotocave.setVisible(true);
-        }
+
 
         enterthebattle.setVisible(false);
 
 
-        loctext.setText("Вы в лесу. Тут лесяво.");
+        loctext.setText("Вы в пещере. Тут мокро и воняет.");
 
         explore.setOnAction(e ->{
             Dice dice = new Dice();
@@ -55,12 +49,7 @@ public class LocationController {
                 loctext.setText(n+"\nВы наткнулись на врага!");
                 explore.setVisible(false);
                 enterthebattle.setVisible(true);
-            }
-            else if (a>=4 && a <7 && game.player.cave==false){
-                String n = loctext.getText();
-                loctext.setText(n+"\nВы нашли пещеры!");
-                gotocave.setVisible(true);
-                game.player.cave=true;
+
             }
             else {
                 String n = loctext.getText();
@@ -69,23 +58,16 @@ public class LocationController {
         });
 
         enterthebattle.setOnAction(e ->{
-            game.prevloc="Location.fxml";
+            game.prevloc = "Caves.fxml";
             try {
                 Main.instance.switchScene("Battle.fxml");
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
         } );
-        gotocave.setOnAction(e->{
-            try {
-                Main.instance.switchScene("Caves.fxml");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
 
 
     }
 
 
-    }
+}

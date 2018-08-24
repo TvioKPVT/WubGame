@@ -50,7 +50,8 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="makeAttackButton" mnemonicParsing="false" text="Атаковать" />
+            <Button fx:id="makeattackbutton" mnemonicParsing="false" text="Атаковать" />
+            <Button fx:id="makeheal" mnemonicParsing="false" text="Полечиться" />
             <Button fx:id="youwin" mnemonicParsing="false" text="Вы победили" />
             <Button fx:id="tryagain" mnemonicParsing="false" text="Попробовать еще раз" />
          </children>

@@ -43,7 +43,7 @@ public class Main extends Application {
     public void switchScene(String filename) throws IOException {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource(filename));//"Battle.fxml"
+            root = FXMLLoader.load(getClass().getResource(filename));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
