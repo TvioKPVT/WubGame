@@ -8,7 +8,7 @@ public class Game {
 
 
     public void startGame(){
-         player.createCharacter();
+
 
      }
 }

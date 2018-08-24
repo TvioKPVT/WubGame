@@ -30,7 +30,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         parentWindow = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("Location.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("StartOfTheGame.fxml"));
         Scene scene = new Scene(root);
 
         //parentWindow.initStyle(StageStyle.UNDECORATED);  //убрать кнопки управления окном.
