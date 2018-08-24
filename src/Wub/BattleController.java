@@ -15,6 +15,8 @@ public Label battletext;
 public Button makeAttackButton;
 public Button youwin;
 public Button tryagain;
+public ProgressBar playerhp;
+public ProgressBar enemyhp;
 
 Game game = Main.instance.game;
 
@@ -23,6 +25,8 @@ public void initialize(){
     pstr.setText("STR: "+Integer.toString(game.player.STR));
     pend.setText("END: " + Integer.toString(game.player.END));
     pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+    playerhp.setProgress(game.player.percentHP());
+    enemyhp.setProgress(game.enemy.percentHP());
 
     estr.setText("STR: "+Integer.toString(game.enemy.STR));
     eend.setText("END: " + Integer.toString(game.enemy.END));
@@ -36,8 +40,10 @@ public void initialize(){
     //кнопка атаки.
     makeAttackButton.setOnAction(e -> {
         String w = battletext.getText();
+
         battletext.setText(w+"\nВы нанесли "+Integer.toString(game.player.attack(game.enemy))+ " единиц урона." );
         ecurrhp.setText("HP: " + Integer.toString(game.enemy.CurrHP));
+        enemyhp.setProgress(game.enemy.percentHP());
         //проверка на смерть врага
         if (game.enemy.isAlive == false){
             makeAttackButton.setVisible(false);
@@ -51,6 +57,7 @@ public void initialize(){
         else{
             String k = battletext.getText();
             battletext.setText(k+"\nВраг нанес Вам "+Integer.toString(game.enemy.attack(game.player))+ " единиц урона.");
+            playerhp.setProgress(game.player.percentHP());
             pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
             //проверка на смерть игрока
             if (game.player.isAlive == false){

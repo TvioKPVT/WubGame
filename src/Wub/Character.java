@@ -21,10 +21,18 @@ public class Character {
         cave = false;
 
     }
+     public double percentHP(){
+        double n=this.HP/100.0;
+        double c=this.CurrHP/n;
+        double a = c/100;
+        return a;
+
+     }
 
     public int attack(Character target) {
         int n = this.STR*2;
         target.CurrHP -= n;
+
         if (target.CurrHP <= 0) target.isAlive = false;
         return n;
     }

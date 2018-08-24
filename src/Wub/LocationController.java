@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class LocationController {
     public Button enterthebattle;
     public Button gotocave;
     public Button explore;
+    public ProgressBar playerhp;
 
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
@@ -30,6 +32,8 @@ public class LocationController {
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+        playerhp.setProgress(game.player.percentHP());
+
         if (game.player.cave== false){
             gotocave.setVisible(false);
         }
