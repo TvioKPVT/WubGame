@@ -20,6 +20,7 @@ public ProgressBar playerhp;
 public ProgressBar enemyhp;
 
 Game game = Main.instance.game;
+    //ответочка
     public void enemyTurn() {
         String k = battletext.getText();
 
@@ -86,7 +87,7 @@ public void initialize(){
         else{enemyTurn();        }
 
     });
-
+    //кнопка хила
     makeheal.setOnAction(e->{
         String w = battletext.getText();
         battletext.setText(w+"\nВы вылечили "+Integer.toString(game.player.heal())+ " единиц здоровья." );
