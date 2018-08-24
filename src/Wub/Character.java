@@ -16,6 +16,7 @@ public class Character {
         END = dice.d310();
         HP = (STR+END)*2;
         CurrHP = HP;
+        isAlive=true;
 
     }
 

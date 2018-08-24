@@ -46,6 +46,7 @@
         </rowConstraints>
          <children>
             <Button fx:id="makeAttackButton" mnemonicParsing="false" text="Атаковать" />
+            <Button fx:id="youwin" mnemonicParsing="false" text="Выйти из боя" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </bottom>
