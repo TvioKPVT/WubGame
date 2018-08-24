@@ -36,6 +36,7 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="explore" mnemonicParsing="false" text="Исследовать окрестности" />
             <Button fx:id="enterthebattle" mnemonicParsing="false" text="В бой!" />
             <Button fx:id="gotocave" mnemonicParsing="false" text="В пещеры" />
          </children>

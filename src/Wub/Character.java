@@ -8,6 +8,7 @@ public class Character {
     int HP;
     int CurrHP;
     boolean isAlive=true;
+    boolean cave = false;
 
     private Dice dice = new Dice();
 
@@ -17,6 +18,7 @@ public class Character {
         HP = (STR+END)*2;
         CurrHP = HP;
         isAlive=true;
+        cave = false;
 
     }
 
@@ -29,6 +31,7 @@ public class Character {
 }
 //Методы, доступные игроку.
 class Player extends Character{
+
 
 }
 //Методы, доступны врагам.

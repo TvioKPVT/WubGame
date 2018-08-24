@@ -16,6 +16,7 @@ public class LocationController {
     public Label loctext;
     public Button enterthebattle;
     public Button gotocave;
+    public Button explore;
 
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
@@ -29,10 +30,39 @@ public class LocationController {
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
-        gotocave.setVisible(false);
+        if (game.player.cave== false){
+            gotocave.setVisible(false);
+        }
+        else{
+            gotocave.setVisible(true);
+        }
+
+        enterthebattle.setVisible(false);
 
 
-        loctext.setText("Вы в лесу. Тут лесяво. Перед вами стоит враг.");
+        loctext.setText("Вы в лесу. Тут лесяво.");
+
+        explore.setOnAction(e ->{
+            Dice dice = new Dice();
+            int a = dice.d10();
+
+            if(a<=3){
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы наткнулись на врага!");
+                explore.setVisible(false);
+                enterthebattle.setVisible(true);
+            }
+            else if (a>=4 && a <7 && game.player.cave==false){
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы нашли пещеры!");
+                gotocave.setVisible(true);
+                game.player.cave=true;
+            }
+            else {
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы нашли некоторую полезную хрень.");
+            }
+        });
 
         enterthebattle.setOnAction(e ->{
             try {
