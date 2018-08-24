@@ -26,11 +26,21 @@ public void initialize(){
     battletext.setText("Вы видите врага.");
 
     makeAttackButton.setOnAction(e -> {
-        battletext.setText("Вы нанесли "+Integer.toString(game.player.attack(game.enemy))+ " единиц урона" );
+        String w = battletext.getText();
+        battletext.setText(w+"\nВы нанесли "+Integer.toString(game.player.attack(game.enemy))+ " единиц урона." );
         ecurrhp.setText("HP: " + Integer.toString(game.enemy.CurrHP));
-    if (game.enemy.isAlive == false){
-        battletext.setText("Враг сдох.");
-    }
+        if (game.enemy.isAlive == false){
+            battletext.setText(w+"\nВраг сдох.");
+        }
+        else{
+            String k = battletext.getText();
+            battletext.setText(k+"\nВраг нанес Вам "+Integer.toString(game.enemy.attack(game.player))+ " единиц урона.");
+            pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+            if (game.player.isAlive == false){
+                battletext.setText(w+"\nВы всё.");
+            }
+        }
+
     });
 
 }
