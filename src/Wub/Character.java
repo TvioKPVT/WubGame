@@ -3,6 +3,7 @@ package Wub;
 
 //Характеристики персонажей в игре.
 public class Character {
+
     int STR;
     int END;
     int HP;
@@ -15,12 +16,13 @@ public class Character {
     public void createCharacter(){
         STR = dice.d310();
         END = dice.d310();
-        HP = (STR+END)*2;
+        HP = 100+(END*3);
         CurrHP = HP;
         isAlive=true;
         cave = false;
 
     }
+
     //высчет текущего процента хп для прогрессбара
      public double percentHP(){
         double n=this.HP/100.0;
@@ -29,9 +31,9 @@ public class Character {
         return a;
 
      }
-    //атака
+    //атака голыми руками.
     public int attack(Character target) {
-        int n = this.STR*2;
+        int n = this.STR+dice.d10()+1;
         target.CurrHP -= n;
 
         if (target.CurrHP <= 0) target.isAlive = false;
@@ -50,14 +52,32 @@ public class Character {
 
         return n;
     }
+
+    public String specieschoose(){
+        Game game = Main.instance.game;
+
+        String n = null;
+        if (game.prevloc=="Caves.fxml"){
+            n = "Bat";
+        }
+        else if(game.prevloc == "Location.fxml") {
+            n = "Wolf";
+        }
+
+
+        return n;
+    }
 }
 //Методы, доступные игроку.
 class Player extends Character{
+    String species = "humanoid";
 
 
 }
 //Методы, доступны врагам.
 class Enemy extends Character {
+
+   String species = specieschoose();
 
 
 }
