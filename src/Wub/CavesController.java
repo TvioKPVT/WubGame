@@ -14,9 +14,12 @@ public class CavesController {
     public Label pstr;
     public Label pend;
     public Label pcurrhp;
+    public Label pspecies;
     public Label loctext;
+
     public Button enterthebattle;
     public Button explore;
+    public Button backtoforest;
     public ProgressBar playerhp;
 
     Game game = Main.instance.game;
@@ -31,6 +34,7 @@ public class CavesController {
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+        pspecies.setText(game.player.species);
         playerhp.setProgress(game.player.percentHP());
 
 
@@ -54,6 +58,14 @@ public class CavesController {
             else {
                 String n = loctext.getText();
                 loctext.setText(n+"\nВы нашли некоторую полезную хрень.");
+            }
+        });
+
+        backtoforest.setOnAction(e->{
+            try {
+                Main.instance.switchScene("Location.fxml");
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         });
 

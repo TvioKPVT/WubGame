@@ -15,6 +15,7 @@ public class LocationController {
     public Label pend;
     public Label pcurrhp;
     public Label loctext;
+    public Label pspecies;
     public Button enterthebattle;
     public Button gotocave;
     public Button explore;
@@ -33,6 +34,7 @@ public class LocationController {
         pend.setText("END: " + Integer.toString(game.player.END));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
+        pspecies.setText(game.player.species);
 
         if (game.player.cave== false){
             gotocave.setVisible(false);

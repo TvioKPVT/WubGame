@@ -1,13 +1,14 @@
 package Wub;
 
-public class Weapon extends Character {
-    Game game = Main.instance.game;
+public class Weapon  {
+    //Game game = Main.instance.game;
     private Dice dice = new Dice();
     int damage;
     String description;
 
-    public void Sword(){
-        damage = (2 * this.STR)+10+dice.d10()+1;
+    public int Sword(Character character){
+        damage = (2 * character.STR) +10+dice.d10()+1;
+        return damage;
     }
 
 }

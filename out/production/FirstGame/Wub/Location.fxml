@@ -15,6 +15,7 @@
                 <Label fx:id="pstr" text="Label" />
                 <Label fx:id="pend" text="Label" />
                 <Label fx:id="pcurrhp" text="Label" />
+            <Label fx:id="pspecies" text="Label" />
             <ProgressBar fx:id="playerhp" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
             </children>
          <padding>

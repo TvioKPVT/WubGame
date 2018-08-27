@@ -3,23 +3,44 @@ package Wub;
 
 //Характеристики персонажей в игре.
 public class Character {
-
+    Game game = Main.instance.game;
+    public Weapon weapon = new Weapon();
     int STR;
     int END;
     int HP;
     int CurrHP;
     boolean isAlive=true;
     boolean cave = false;
+    boolean hasaweapon = false;
+    String species=null;
 
     private Dice dice = new Dice();
     //создание персонажей
     public void createCharacter(){
-        STR = dice.d310();
-        END = dice.d310();
+        if (this.species=="Humanoid Player"){
+        STR = dice.d310()+5;
+        END = dice.d310()+5;
         HP = 100+(END*3);
         CurrHP = HP;
         isAlive=true;
         cave = false;
+
+        }
+        else if (this.species =="Wolf"){
+            STR = dice.d310()+7;
+            END = dice.d310()+3;
+            HP = 100+(END*3);
+            CurrHP = HP;
+            isAlive=true;
+
+        } else if (this.species == "Bat") {
+
+            STR = dice.d310()+2;
+            END = dice.d310()+2;
+            HP = 100+(END*3);
+            CurrHP = HP;
+            isAlive=true;
+        }
 
     }
 
@@ -33,11 +54,20 @@ public class Character {
      }
     //атака голыми руками.
     public int attack(Character target) {
-        int n = this.STR+dice.d10()+1;
-        target.CurrHP -= n;
+        int n = 0;
+        if (this.hasaweapon == true){
 
+            n = weapon.Sword(this);
+
+        }
+        else{
+        n = this.STR+dice.d10()+1;
+
+        }
+        target.CurrHP -= n;
         if (target.CurrHP <= 0) target.isAlive = false;
         return n;
+
     }
 
     public int heal(){
@@ -70,14 +100,17 @@ public class Character {
 }
 //Методы, доступные игроку.
 class Player extends Character{
-    String species = "humanoid";
 
+    Player(){
+        species  = "Humanoid Player";
+        hasaweapon = true;
+    }
 
 }
 //Методы, доступны врагам.
 class Enemy extends Character {
-
-   String species = specieschoose();
-
+    Enemy() {
+        species = specieschoose();
+    }
 
 }

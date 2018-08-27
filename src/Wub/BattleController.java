@@ -8,6 +8,7 @@ public class BattleController {
 public Label pstr;
 public Label pend;
 public Label pcurrhp;
+public Label pspecies;
 public Label estr;
 public Label eend;
 public Label ecurrhp;
@@ -58,6 +59,7 @@ public void initialize(){
     pend.setText("END: " + Integer.toString(game.player.END));
     pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
     playerhp.setProgress(game.player.percentHP());
+    pspecies.setText(game.player.species);
 
     enemyhp.setProgress(enemy.percentHP());
     estr.setText("STR: "+Integer.toString(enemy.STR));
