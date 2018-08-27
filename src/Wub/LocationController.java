@@ -1,8 +1,6 @@
 package Wub;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -20,6 +18,7 @@ public class LocationController {
     public Button gotocave;
     public Button explore;
     public ProgressBar playerhp;
+
 
 
 
@@ -96,8 +95,9 @@ public class LocationController {
 
     }
 
-
+//инициализация уровня на старте.
     public void initialize(){
+        playerhp.setStyle("-fx-accent: #991111");
         gotoforest();
 
 

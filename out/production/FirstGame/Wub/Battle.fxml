@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.BattleController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.BattleController">
    <left>
       <VBox prefHeight="338.0" prefWidth="100.0" spacing="5.0">
          <children>
-            <Label fx:id="pstr" text="Label" />
-            <Label fx:id="pend" text="Label" />
-            <Label fx:id="pcurrhp" text="Label" />
-            <Label fx:id="pspecies" text="Label" />
-            <ProgressBar fx:id="playerhp" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
+            <Label fx:id="pstr" text="Label" textFill="WHITE" />
+            <Label fx:id="pend" text="Label" textFill="WHITE" />
+            <Label fx:id="pcurrhp" text="Label" textFill="WHITE" />
+            <Label fx:id="pspecies" text="Label" textFill="WHITE" />
+            <ProgressBar fx:id="playerhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -29,11 +29,11 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="estr" text="Label" />
-            <Label fx:id="eend" text="Label" />
-            <Label fx:id="ecurrhp" text="Label" />
-            <Label fx:id="especies" text="species" />
-            <ProgressBar fx:id="enemyhp" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
+            <Label fx:id="estr" text="Label" textFill="WHITE" />
+            <Label fx:id="eend" text="Label" textFill="WHITE" />
+            <Label fx:id="ecurrhp" text="Label" textFill="WHITE" />
+            <Label fx:id="especies" text="species" textFill="WHITE" />
+            <ProgressBar fx:id="enemyhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
          </children>
          <padding>
             <Insets left="10.0" right="10.0" top="5.0" />
@@ -42,7 +42,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="battletext" text="Label" />
+            <Label fx:id="battletext" text="Label" textFill="WHITE" />
          </children>
          <padding>
             <Insets left="10.0" top="5.0" />
@@ -52,10 +52,10 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="makeattackbutton" mnemonicParsing="false" text="Атаковать" />
-            <Button fx:id="makeheal" mnemonicParsing="false" text="Полечиться" />
-            <Button fx:id="youwin" mnemonicParsing="false" text="Вы победили" />
-            <Button fx:id="tryagain" mnemonicParsing="false" text="Попробовать еще раз" />
+            <Button fx:id="makeattackbutton" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Атаковать" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" />
+            <Button fx:id="makeheal" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Полечиться" textFill="WHITE" />
+            <Button fx:id="youwin" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Вы победили" textFill="WHITE" />
+            <Button fx:id="tryagain" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Попробовать еще раз" textFill="WHITE" />
          </children>
          <opaqueInsets>
             <Insets right="10.0" />

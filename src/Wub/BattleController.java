@@ -66,6 +66,8 @@ public void initialize(){
     eend.setText("END: " + Integer.toString(enemy.END));
     ecurrhp.setText("HP: " + Integer.toString(enemy.CurrHP));
     especies.setText(enemy.species);
+    playerhp.setStyle("-fx-accent: #991111");
+    enemyhp.setStyle("-fx-accent: #991111");
 
    makehealcheck();
 
