@@ -17,6 +17,7 @@ public class LocationController {
     public Button enterthebattle;
     public Button gotocave;
     public Button explore;
+    public Button inventory;
     public ProgressBar playerhp;
 
 
@@ -117,6 +118,15 @@ public class LocationController {
             }
         } );
         gotocave.setOnAction(e->gotocaves());
+
+        inventory.setOnAction(e->{
+            try {
+                Main.instance.switchScene("Inventory.fxml");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        } );
+
 
 
     }

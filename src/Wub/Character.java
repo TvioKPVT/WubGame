@@ -1,19 +1,25 @@
 package Wub;
 
 
+import javafx.scene.control.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //Характеристики персонажей в игре.
 public class Character {
-    Game game = Main.instance.game;
-    public Weapon weapon = new Weapon();
+    //Game game = Main.instance.game;
+    public Weapon weapon = null;
     int STR;
     int END;
     int HP;
     int CurrHP;
     boolean isAlive=true;
     boolean cave = false;
-    boolean hasaweapon = false;
+
     String species=null;
     String currloc = "forest";
+    List<Things> inventory = new ArrayList<>();
 
     private Dice dice = new Dice();
     //создание персонажей
@@ -25,6 +31,11 @@ public class Character {
         CurrHP = HP;
         isAlive=true;
         cave = false;
+        Weapon sword = new Sword();
+        inventory.add(sword);
+
+        weapon = sword;
+        //inventory.contains(sword);
 
         }
         else if (this.species =="Wolf"){
@@ -56,9 +67,9 @@ public class Character {
     //атака голыми руками.
     public int attack(Character target) {
         int n = 0;
-        if (this.hasaweapon == true){
+        if (this.weapon != null){
 
-            n = weapon.Sword(this);
+            n = weapon.get_damage(this);
 
         }
         else{
@@ -104,7 +115,6 @@ class Player extends Character{
 
     Player(){
         species  = "Humanoid Player";
-        hasaweapon = true;
     }
 
 }

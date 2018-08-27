@@ -42,6 +42,11 @@
             <Button fx:id="explore" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Исследовать окрестности" textFill="WHITE" />
             <Button fx:id="enterthebattle" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В бой!" textFill="WHITE" />
             <Button fx:id="gotocave" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В пещеры" textFill="WHITE" />
+            <Button fx:id="inventory" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Инвентарь" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />
