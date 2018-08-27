@@ -3,25 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Battle.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/BattleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/BattleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Caves.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Caves.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/CavesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/CavesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Caves.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/CavesController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Character.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Location.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/LocationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/LocationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FirstGame/Wub/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FirstGame/Wub/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wub/Battle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Battle.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Wub/BattleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/BattleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wub/Caves.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Caves.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wub/CavesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/CavesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wub/Caves.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wub/CavesController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Wub/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Wub/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wub/Location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Location.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Wub/LocationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/LocationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wub/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wub/Weapon.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,21 +108,22 @@
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.8" value="4" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="17" />
           <entry key="fxml" value="48" />
-          <entry key="java" value="6223" />
+          <entry key="java" value="6899" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6223" />
+          <entry key="JAVA" value="6899" />
           <entry key="PLAIN_TEXT" value="17" />
           <entry key="XML" value="48" />
         </counts>
@@ -185,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
+            <state relative-caret-position="536">
               <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -197,21 +193,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
-              <folding>
-                <element signature="e#1686#1687#0" expanded="true" />
-                <element signature="e#1727#1728#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="179">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -228,8 +220,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/BattleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="2091">
+              <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -237,33 +229,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Wub/LocationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Wub/Caves.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="245" selection-start-line="10" selection-start-column="245" selection-end-line="10" selection-end-column="245" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Wub/CavesController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+            <state relative-caret-position="214">
+              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -283,7 +253,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wub/Battle.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
+            <state relative-caret-position="833">
               <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
             </state>
           </provider>
@@ -299,6 +269,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prev</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -328,12 +303,12 @@
         <option value="$PROJECT_DIR$/src/Wub/Dice.java" />
         <option value="$PROJECT_DIR$/src/Wub/Main.java" />
         <option value="$PROJECT_DIR$/src/Wub/Caves.fxml" />
-        <option value="$PROJECT_DIR$/src/Wub/LocationController.java" />
         <option value="$PROJECT_DIR$/src/Wub/CavesController.java" />
-        <option value="$PROJECT_DIR$/src/Wub/BattleController.java" />
+        <option value="$PROJECT_DIR$/src/Wub/Character.java" />
         <option value="$PROJECT_DIR$/src/Wub/Game.java" />
         <option value="$PROJECT_DIR$/src/Wub/Weapon.java" />
-        <option value="$PROJECT_DIR$/src/Wub/Character.java" />
+        <option value="$PROJECT_DIR$/src/Wub/BattleController.java" />
+        <option value="$PROJECT_DIR$/src/Wub/LocationController.java" />
       </list>
     </option>
   </component>
@@ -352,6 +327,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -375,7 +351,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -388,132 +363,11 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535366891587" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535370466093" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/Battle.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/BattleController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/Character.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/Enemy.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/Game.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/FirstGame/Wub/Player.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Wub/Battle.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Wub/BattleController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Wub/Character.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Wub/Game.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Wub/Weapon.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -619,7 +473,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23347548" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23614073" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -720,14 +574,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/Caves.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="245" selection-start-line="10" selection-start-column="245" selection-end-line="10" selection-end-column="245" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/StartOfTheGameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -738,14 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/Battle.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/Dice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -753,29 +591,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/LocationController.java">
+    <entry file="file://$PROJECT_DIR$/src/Wub/Battle.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        <state relative-caret-position="833">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wub/CavesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="61" column="11" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="61" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/BattleController.java">
+    <entry file="file://$PROJECT_DIR$/src/Wub/Caves.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="245" selection-start-line="10" selection-start-column="245" selection-end-line="10" selection-end-column="245" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
+        <state relative-caret-position="536">
           <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -785,18 +629,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Wub/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/CavesController.java">
+    <entry file="file://$PROJECT_DIR$/src/Wub/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="179">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -807,13 +648,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Wub/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/Wub/BattleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        <state relative-caret-position="2091">
+          <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
           <folding>
-            <element signature="e#1686#1687#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wub/LocationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

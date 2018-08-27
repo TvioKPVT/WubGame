@@ -21,20 +21,46 @@ public class LocationController {
     public Button explore;
     public ProgressBar playerhp;
 
+
+
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
 
+//переключение сцены на пещеры
+    public void gotocaves(){
+        loctext.setText("Вы в пещере. Тут мокро и воняет.");
+        game.player.currloc = "caves";
+        gotocave.setText("Вернуться в лес");
+
+        //кнопка, отвечающая за исследования на локации Пещеры
+        explore.setOnAction(e ->{
+            Dice dice = new Dice();
+            int a = dice.d10();
+
+            if(a<=3){
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы наткнулись на врага!");
+                explore.setVisible(false);
+                enterthebattle.setVisible(true);
+
+            }
+            else {
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы нашли некоторую полезную хрень.");
+            }
 
 
+        });
 
-    public void initialize(){
+        gotocave.setOnAction(e->{
+            gotoforest();
 
-
-        pstr.setText("STR: "+Integer.toString(game.player.STR));
-        pend.setText("END: " + Integer.toString(game.player.END));
-        pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
-        playerhp.setProgress(game.player.percentHP());
-        pspecies.setText(game.player.species);
+    });
+    }
+//переключение сцены на лес. Так же участвует в инициализации стартовой локации.
+    public void gotoforest(){
+        loctext.setText("Вы в лесу. Тут лесяво.");
+        gotocave.setOnAction(e->gotocaves());
 
         if (game.player.cave== false){
             gotocave.setVisible(false);
@@ -44,9 +70,7 @@ public class LocationController {
         }
 
         enterthebattle.setVisible(false);
-
-
-        loctext.setText("Вы в лесу. Тут лесяво.");
+        gotocave.setText("В пещеры");
 
         explore.setOnAction(e ->{
             Dice dice = new Dice();
@@ -70,24 +94,32 @@ public class LocationController {
             }
         });
 
+    }
+
+
+    public void initialize(){
+        gotoforest();
+
+
+        pstr.setText("STR: "+Integer.toString(game.player.STR));
+        pend.setText("END: " + Integer.toString(game.player.END));
+        pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+        playerhp.setProgress(game.player.percentHP());
+        pspecies.setText(game.player.species);
+
+
         enterthebattle.setOnAction(e ->{
-            game.prevloc="Location.fxml";
+
             try {
                 Main.instance.switchScene("Battle.fxml");
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
         } );
-        gotocave.setOnAction(e->{
-            try {
-                Main.instance.switchScene("Caves.fxml");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
+        gotocave.setOnAction(e->gotocaves());
 
 
     }
 
+}
 
-    }

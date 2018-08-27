@@ -13,6 +13,7 @@ public class Character {
     boolean cave = false;
     boolean hasaweapon = false;
     String species=null;
+    String currloc = "forest";
 
     private Dice dice = new Dice();
     //создание персонажей
@@ -87,10 +88,10 @@ public class Character {
         Game game = Main.instance.game;
 
         String n = null;
-        if (game.prevloc=="Caves.fxml"){
+        if (game.player.currloc=="caves"){
             n = "Bat";
         }
-        else if(game.prevloc == "Location.fxml") {
+        else if(game.player.currloc == "forest") {
             n = "Wolf";
         }
 

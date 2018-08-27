@@ -112,7 +112,7 @@ public void initialize(){
     //кнопка выхода из боя при победе
     youwin.setOnAction(e->{
         try {
-            Main.instance.switchScene(game.prevloc);
+            Main.instance.switchScene("Location.fxml");
         } catch (IOException e1) {
             e1.printStackTrace();
         }
