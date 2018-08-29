@@ -8,12 +8,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.InventoryController">
    <center>
-      <ListView fx:id="inventoryListWiev" blendMode="OVERLAY" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER" />
+      <ListView fx:id="inventoryListView" blendMode="OVERLAY" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="back" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Назад" textFill="WHITE" />
+            <Button fx:id="use" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Использовать" textFill="WHITE" />
+            <Button fx:id="back" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Назад" textFill="WHITE" />
          </children>
          <opaqueInsets>
             <Insets right="5.0" top="10.0" />

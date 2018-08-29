@@ -4,6 +4,7 @@ public class Things {
     //Game game = Main.instance.game;
     Dice dice = new Dice();
     int damage;
+    int heal;
     String description;
     String title = "Thing";
 
@@ -14,6 +15,7 @@ public class Things {
 class Weapon extends Things{
     public int get_damage(Character character){return 0;}
 }
+
 class Sword extends Weapon{
 
     Sword(){
@@ -26,4 +28,17 @@ class Sword extends Weapon{
     }
 
 
+}
+
+class Consumnables extends Things{
+    public int get_healed(){return 0;}
+}
+
+class Berry extends Consumnables{
+
+    Berry(){title = "Ягодка";}
+
+    public int get_healed(){
+        heal = 20;
+        return heal;}
 }

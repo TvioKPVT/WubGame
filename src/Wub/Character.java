@@ -10,6 +10,7 @@ import java.util.List;
 public class Character {
     //Game game = Main.instance.game;
     public Weapon weapon = null;
+    public Consumnables consumnables = null;
     int STR;
     int END;
     int HP;
@@ -31,8 +32,10 @@ public class Character {
         CurrHP = HP;
         isAlive=true;
         cave = false;
+        Consumnables berry = new Berry();
         Weapon sword = new Sword();
         inventory.add(sword);
+        inventory.add(berry);
 
         weapon = sword;
         //inventory.contains(sword);
