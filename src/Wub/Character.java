@@ -1,16 +1,13 @@
 package Wub;
 
 
-import javafx.scene.control.ListView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 //Характеристики персонажей в игре.
 public class Character {
     //Game game = Main.instance.game;
-    public Weapon weapon = null;
-    public Consumnables consumnables = null;
+    public Thing weapon = null;
     int STR;
     int END;
     int HP;
@@ -20,7 +17,7 @@ public class Character {
 
     String species=null;
     String currloc = "forest";
-    List<Things> inventory = new ArrayList<>();
+    List<Thing> inventory = new ArrayList<>();
 
     private Dice dice = new Dice();
     //создание персонажей
@@ -32,12 +29,14 @@ public class Character {
         CurrHP = HP;
         isAlive=true;
         cave = false;
-        Consumnables berry = new Berry();
-        Weapon sword = new Sword();
+
+        Thing sword = PredefinedItems.collection.get("sword");
         inventory.add(sword);
+        weapon = sword;
+
+        Thing berry = PredefinedItems.collection.get("berry");
         inventory.add(berry);
 
-        weapon = sword;
         //inventory.contains(sword);
 
         }

@@ -11,7 +11,7 @@ public class InventoryController {
 
     public Button back;
     public Button use;
-    public ListView<Things> inventoryListView = new ListView<Things>();
+    public ListView<Thing> inventoryListView = new ListView<Thing>();
 
 
 
