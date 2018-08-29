@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.LocationController">
+    <left>
+        <VBox prefHeight="338.0" prefWidth="100.0" spacing="5.0">
+            <children>
+                <Label fx:id="pstr" text="Label" textFill="#eeeeee" />
+                <Label fx:id="pend" text="Label" textFill="#eeeeee" />
+                <Label fx:id="pcurrhp" text="Label" textFill="#eeeeee" />
+            <Label fx:id="pspecies" text="Label" textFill="#eeeeee" />
+            <ProgressBar fx:id="playerhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
+            </children>
+         <padding>
+            <Insets left="10.0" top="5.0" />
+         </padding>
+        </VBox>
+    </left>
+    <right>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+    </right>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="loctext" text="Label" textFill="WHITE" />
+            </children>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+        </VBox>
+    </center>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="explore" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Исследовать окрестности" textFill="WHITE" />
+            <Button fx:id="enterthebattle" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В бой!" textFill="WHITE" />
+            <Button fx:id="gotocave" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В пещеры" textFill="WHITE" />
+            <Button fx:id="inventory" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Инвентарь" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

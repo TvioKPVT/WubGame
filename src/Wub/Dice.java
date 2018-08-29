@@ -14,4 +14,9 @@ public class Dice {
 
         return n;
     }
+
+    public int d10(){
+        int n = random.nextInt(10);
+        return n;
+    }
 }
