@@ -3,6 +3,7 @@ package Wub;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 //Характеристики персонажей в игре.
 public class Character {
@@ -12,6 +13,9 @@ public class Character {
     int END;
     int HP;
     int CurrHP;
+    int EXP;
+    int EXPforkill;
+    int LVL;
     boolean isAlive=true;
     boolean cave = false;
 
@@ -21,43 +25,99 @@ public class Character {
 
     private Dice dice = new Dice();
     //создание персонажей
-    public void createCharacter(){
-        if (this.species=="Humanoid Player"){
-        STR = dice.d310()+5;
-        END = dice.d310()+5;
-        HP = 100+(END*3);
-        CurrHP = HP;
-        isAlive=true;
-        cave = false;
-
-        Thing sword = PredefinedItems.collection.get("sword");
-        inventory.add(sword);
-        weapon = sword;
-
-        Thing berry = PredefinedItems.collection.get("berry");
-        inventory.add(berry);
-
-        //inventory.contains(sword);
-
-        }
-        else if (this.species =="Wolf"){
-            STR = dice.d310()+7;
-            END = dice.d310()+3;
-            HP = 100+(END*3);
+    public void createCharacter() {
+        if (this.species == "Humanoid Player") {
+            STR = dice.d310() + 5;
+            END = dice.d310() + 5;
+            HP = 100 + (END * 3);
             CurrHP = HP;
-            isAlive=true;
+            EXP = 0;
+            LVL = 10;
+            isAlive = true;
+            cave = false;
+
+            Thing sword = PredefinedItems.collection.get("sword");
+            inventory.add(sword);
+            weapon = sword;
+
+            Thing berry = PredefinedItems.collection.get("berry");
+            inventory.add(berry);
+
+            //inventory.contains(sword);
+
+        } else if (this.species == "Wolf") {
+            STR = dice.d310() + 7;
+            END = dice.d310() + 3;
+            HP = 100 + (END * 3);
+            CurrHP = HP;
+            isAlive = true;
+            EXPforkill = 100;
+            LVL = 1;
+
 
         } else if (this.species == "Bat") {
 
-            STR = dice.d310()+2;
-            END = dice.d310()+2;
-            HP = 100+(END*3);
+            STR = dice.d310() + 2;
+            END = dice.d310() + 2;
+            HP = 100 + (END * 3);
             CurrHP = HP;
-            isAlive=true;
+            isAlive = true;
+            EXPforkill = 75;
+            LVL = 1;
+
+        } else if (this.species == "Humanoid") {
+            STR = dice.d310() + 5;
+            END = dice.d310() + 5;
+            HP = 100 + (END * 3);
+            CurrHP = HP;
+            isAlive = true;
+            cave = false;
+            EXPforkill = 200;
+            LVL = 1;
+
+            Thing sword = PredefinedItems.collection.get("sword");
+            inventory.add(sword);
+            weapon = sword;
+
+            Thing berry = PredefinedItems.collection.get("berry");
+            inventory.add(berry);
+
+
         }
+    }
+
+    public void lvlroll(Character player){//фунцкия, чекающая ЛВЛ игрока для спавна врага соответствущего ЛВЛ
+        int n = player.LVL;
+        if (n > 1)
+        {
+            Random random = new Random();
+            int a = random.nextInt(2)-1;
+            n += a;
+            for (int i=0; i<=n;i++ ){
+                this.lvlrise();
+            }
+        }
+        this.LVL = n;
 
     }
 
+    public void lvlupcheck(){
+        if (this.EXP >= (this.LVL*500)){
+            this.STR+=3;
+            this.END+=3;
+            this.HP+=2*this.END;
+            this.LVL++;
+            this.CurrHP+=2*this.END;
+        }
+    }
+
+    public void lvlrise(){
+        this.STR+=3;
+        this.END+=3;
+        this.HP+=2*this.END;
+        this.LVL++;
+        this.CurrHP+=2*this.END;
+    }
     //высчет текущего процента хп для прогрессбара
      public double percentHP(){
         double n=this.HP/100.0;
@@ -105,7 +165,11 @@ public class Character {
             n = "Bat";
         }
         else if(game.player.currloc == "forest") {
-            n = "Wolf";
+            int a = dice.d10();
+            if (a > 5) {
+                n = "Wolf";
+            }
+            else n = "Humanoid";
         }
 
 

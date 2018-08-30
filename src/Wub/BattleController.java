@@ -9,11 +9,14 @@ public Label pstr;
 public Label pend;
 public Label pcurrhp;
 public Label pspecies;
+public Label pexp;
 public Label estr;
 public Label eend;
 public Label ecurrhp;
 public Label battletext;
 public Label especies;
+public Label eweapon;
+public Label elvl;
 public Button makeattackbutton;
 public Button makeheal;
 public Button youwin;
@@ -26,6 +29,9 @@ public ProgressBar enemyhp;
 public Enemy enemy = new Enemy();
 
 Game game = Main.instance.game;
+
+
+
     //ответочка
     public void enemyTurn() {
         String k = battletext.getText();
@@ -52,22 +58,36 @@ Game game = Main.instance.game;
             }
     }
 
+    public void rollforlut(){
+        String w = battletext.getText();
+        Dice dice = new Dice();
+        int n = dice.d10();//заготовка для ролла лута, когда его будет больше, чем просто одна ягодка.
+        Thing berry = PredefinedItems.collection.get("berry");
+        game.player.inventory.add(berry);
+        battletext.setText(w+"\nВы полутали "+berry+ "." );
+
+    }
+
 public void initialize(){
     enemy.createCharacter();
+    enemy.lvlroll(game.player);
 
+    pexp.setText(String.valueOf(game.player.EXP)+ " EXP");
     pstr.setText("STR: "+Integer.toString(game.player.STR));
     pend.setText("END: " + Integer.toString(game.player.END));
     pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
     playerhp.setProgress(game.player.percentHP());
-    pspecies.setText(game.player.species);
+    pspecies.setText("Человек "+game.player.LVL+" LVL");//если будет много игровых рас, то надо будет тут поменять, чтобы отображало корректную расу
 
     enemyhp.setProgress(enemy.percentHP());
     estr.setText("STR: "+Integer.toString(enemy.STR));
     eend.setText("END: " + Integer.toString(enemy.END));
     ecurrhp.setText("HP: " + Integer.toString(enemy.CurrHP));
-    especies.setText(enemy.species);
+    especies.setText(enemy.species+" "+enemy.LVL+" LVL");
     playerhp.setStyle("-fx-accent: #991111");
     enemyhp.setStyle("-fx-accent: #991111");
+    eweapon.setText(String.valueOf(enemy.weapon));
+
 
    makehealcheck();
 
@@ -89,6 +109,8 @@ public void initialize(){
             makeheal.setVisible(false);
             youwin.setVisible(true);
             battletext.setText(w+"\nВраг сдох!");
+            game.player.EXP+=enemy.EXPforkill;
+            rollforlut();
 
 
             }
@@ -113,6 +135,7 @@ public void initialize(){
 
     //кнопка выхода из боя при победе
     youwin.setOnAction(e->{
+        game.player.lvlupcheck();
         try {
             Main.instance.switchScene("Location.fxml");
         } catch (IOException e1) {

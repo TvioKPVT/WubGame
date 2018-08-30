@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.InventoryController">
@@ -30,14 +31,24 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="pstr" text="Label" textFill="WHITE" />
-            <Label fx:id="pend" text="Label" textFill="WHITE" />
-            <Label fx:id="pcurrhp" text="Label" textFill="WHITE" />
+            <Label fx:id="pstr" text="STR" textFill="WHITE" />
+            <Label fx:id="pend" text="END" textFill="WHITE" />
+            <Label fx:id="pcurrhp" text="HP" textFill="WHITE" />
             <ProgressBar fx:id="playerhp" blendMode="OVERLAY" prefWidth="100.0" progress="0.0" />
+            <Label fx:id="pexp" text="EXP" textFill="WHITE" />
+            <Label fx:id="plvl" text="LVL" textFill="WHITE" />
          </children>
          <padding>
             <Insets left="10.0" top="5.0" />
          </padding>
       </VBox>
    </left>
+   <right>
+      <Pane prefHeight="300.0" prefWidth="264.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="weapon" layoutX="30.0" layoutY="112.0" text="Hand" textFill="WHITE" />
+            <Label layoutX="30.0" layoutY="95.0" text="Оружие:" textFill="WHITE" />
+         </children>
+      </Pane>
+   </right>
 </BorderPane>

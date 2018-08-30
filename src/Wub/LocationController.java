@@ -25,6 +25,16 @@ public class LocationController {
 
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
+    public void rollforlut(){
+       // Dice dice = new Dice();
+        //int n = dice.d10();
+        //if (n <2){
+            String w = loctext.getText();
+            Thing berry = PredefinedItems.collection.get("berry");
+            game.player.inventory.add(berry);
+            loctext.setText(w+"\nВы полутали "+berry+ "." );
+        //}
+    }
 
 //переключение сцены на пещеры
     public void gotocaves(){
@@ -40,13 +50,14 @@ public class LocationController {
             if(a<=3){
                 String n = loctext.getText();
                 loctext.setText(n+"\nВы наткнулись на врага!");
+                gotocave.setVisible(false);
+                inventory.setVisible(false);
                 explore.setVisible(false);
                 enterthebattle.setVisible(true);
 
             }
             else {
-                String n = loctext.getText();
-                loctext.setText(n+"\nВы нашли некоторую полезную хрень.");
+                rollforlut();
             }
 
 
@@ -79,6 +90,8 @@ public class LocationController {
             if(a<=3){
                 String n = loctext.getText();
                 loctext.setText(n+"\nВы наткнулись на врага!");
+                gotocave.setVisible(false);
+                inventory.setVisible(false);
                 explore.setVisible(false);
                 enterthebattle.setVisible(true);
             }
@@ -89,8 +102,7 @@ public class LocationController {
                 game.player.cave=true;
             }
             else {
-                String n = loctext.getText();
-                loctext.setText(n+"\nВы нашли некоторую полезную хрень.");
+                rollforlut();
             }
         });
 

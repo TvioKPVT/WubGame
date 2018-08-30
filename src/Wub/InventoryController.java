@@ -12,8 +12,10 @@ public class InventoryController {
     public Label pstr;
     public Label pend;
     public Label pcurrhp;
+    public Label pexp;
+    public Label plvl;
     public ProgressBar playerhp;
-
+    public Label weapon;
     public Button back;
     public Button use;
     public ListView<Thing> inventoryListView = new ListView<Thing>();
@@ -26,6 +28,10 @@ public void invinitialize(){
     }
 }
     public void initialize(){
+
+        pexp.setText(String.valueOf(game.player.EXP)+" EXP");
+        plvl.setText(String.valueOf(game.player.LVL)+ "LVL");
+        weapon.setText(String.valueOf(game.player.weapon));
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
@@ -55,9 +61,10 @@ public void invinitialize(){
             if(current_thing.type.equals(Thing.type_options.CONSUMABLE)) {
 
                    //проверка на остаток ХП. Если полное - не лезет еда, ничего не сделаешь.
-                   if (game.player.CurrHP + current_thing.get_healed() <= game.player.HP) {
+                   if (game.player.CurrHP < game.player.HP) {
 
                        game.player.CurrHP += current_thing.get_healed();
+                       if (game.player.CurrHP > game.player.HP){game.player.CurrHP = game.player.HP;}
                        game.player.inventory.remove(n);
 
                        try {
@@ -65,15 +72,7 @@ public void invinitialize(){
                        } catch (IOException e1) {
                            e1.printStackTrace();
                        }
-                   } else if (game.player.CurrHP + current_thing.get_healed() == (game.player.HP+current_thing.get_healed()-1)) {
-                       game.player.CurrHP = game.player.HP;
-                       game.player.inventory.remove(n);
 
-                       try {
-                           Main.instance.switchScene("Inventory.fxml");
-                       } catch (IOException e1) {
-                           e1.printStackTrace();
-                       }
 
                    }
 

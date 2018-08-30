@@ -45,7 +45,7 @@ class Berry extends Thing {
         type = type_options.CONSUMABLE;
     }
 
-    public int get_healed(){return 20;}
+    public int get_healed(){return 200;}
 }
 
 
