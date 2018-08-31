@@ -15,6 +15,7 @@
             <Label fx:id="pstr" text="Label" textFill="WHITE" />
             <Label fx:id="pend" text="Label" textFill="WHITE" />
             <Label fx:id="pcurrhp" text="Label" textFill="WHITE" />
+            <Label fx:id="pcap" text="AP" textFill="WHITE" />
             <Label fx:id="pspecies" text="Species" textFill="WHITE" />
             <ProgressBar fx:id="playerhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
             <Label fx:id="pexp" text="EXP" textFill="WHITE" />
@@ -33,6 +34,7 @@
             <Label fx:id="estr" text="Label" textFill="WHITE" />
             <Label fx:id="eend" text="Label" textFill="WHITE" />
             <Label fx:id="ecurrhp" text="Label" textFill="WHITE" />
+            <Label fx:id="ecap" text="AP" textFill="WHITE" />
             <Label fx:id="especies" text="species" textFill="WHITE" />
             <ProgressBar fx:id="enemyhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
             <Label fx:id="eweapon" text="weapon" textFill="WHITE" />

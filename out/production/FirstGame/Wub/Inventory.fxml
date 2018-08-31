@@ -33,8 +33,10 @@
          <children>
             <Label fx:id="pstr" text="STR" textFill="WHITE" />
             <Label fx:id="pend" text="END" textFill="WHITE" />
+            <Label fx:id="pagi" text="AGI" textFill="WHITE" />
             <Label fx:id="pcurrhp" text="HP" textFill="WHITE" />
             <ProgressBar fx:id="playerhp" blendMode="OVERLAY" prefWidth="100.0" progress="0.0" />
+            <Label fx:id="pap" text="AP" textFill="WHITE" />
             <Label fx:id="pexp" text="EXP" textFill="WHITE" />
             <Label fx:id="plvl" text="LVL" textFill="WHITE" />
          </children>

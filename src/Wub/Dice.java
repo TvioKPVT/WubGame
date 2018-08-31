@@ -19,5 +19,10 @@ public class Dice {
         int n = random.nextInt(10);
         return n;
     }
+
+    public int d100(){
+        int n = random.nextInt(100)+1;
+        return n;
+    }
 }
 //l

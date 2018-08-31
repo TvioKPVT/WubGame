@@ -11,10 +11,11 @@ import java.io.IOException;
 public class LocationController {
     public Label pstr;
     public Label pend;
+    public Label pagi;
     public Label pcurrhp;
     public Label loctext;
     public Label pspecies;
-    public Button enterthebattle;
+
     public Button gotocave;
     public Button explore;
     public Button inventory;
@@ -48,13 +49,11 @@ public class LocationController {
             int a = dice.d10();
 
             if(a<=3){
-                String n = loctext.getText();
-                loctext.setText(n+"\nВы наткнулись на врага!");
-                gotocave.setVisible(false);
-                inventory.setVisible(false);
-                explore.setVisible(false);
-                enterthebattle.setVisible(true);
-
+                try {
+                    Main.instance.switchScene("Battle.fxml");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             else {
                 rollforlut();
@@ -80,7 +79,7 @@ public class LocationController {
             gotocave.setVisible(true);
         }
 
-        enterthebattle.setVisible(false);
+
         gotocave.setText("В пещеры");
 
         explore.setOnAction(e ->{
@@ -88,12 +87,12 @@ public class LocationController {
             int a = dice.d10();
 
             if(a<=3){
-                String n = loctext.getText();
-                loctext.setText(n+"\nВы наткнулись на врага!");
-                gotocave.setVisible(false);
-                inventory.setVisible(false);
-                explore.setVisible(false);
-                enterthebattle.setVisible(true);
+
+                try {
+                    Main.instance.switchScene("Battle.fxml");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             else if (a>=4 && a <7 && game.player.cave==false){
                 String n = loctext.getText();
@@ -116,19 +115,13 @@ public class LocationController {
 
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
+        pagi.setText("AGI: "+Integer.toString(game.player.AGI));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
         pspecies.setText(game.player.species);
 
 
-        enterthebattle.setOnAction(e ->{
 
-            try {
-                Main.instance.switchScene("Battle.fxml");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        } );
         gotocave.setOnAction(e->gotocaves());
 
         inventory.setOnAction(e->{

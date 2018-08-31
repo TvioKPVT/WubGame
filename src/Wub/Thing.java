@@ -12,12 +12,14 @@ public class Thing {
     //int damage, heal;
     String title = "Thing";
     String description = "";
+    int apcost = 0;
     type_options type = type_options.DEFAULT;
 
     //public thing functions
     public int get_damage(Character character){return 0;}
     public int get_healed(){return 0;}
     public String toString(){return title;}
+
 
     public Thing(){}
 }
@@ -28,12 +30,26 @@ class Sword extends Thing{
     Sword(){
         title = "Меч";
         type = type_options.WEAPON;
+        apcost = 20;
     }
 
     public int get_damage(Character character){
         return (2 * character.STR) + 10 + dice.d10() + 1;
     }
 
+
+}
+
+class Jaws extends Thing{
+
+    Jaws(){
+        title = "Челюсти";
+        type = type_options.WEAPON;
+        apcost = 15;
+    }
+    public int get_damage(Character character){
+        return (1 * character.STR) + 5 + dice.d10() + 1;
+    }
 
 }
 
@@ -55,5 +71,6 @@ class PredefinedItems {
     static {
         collection.put("sword", new Sword());
         collection.put("berry", new Berry());
+        collection.put("jaws",new Jaws());
     }
 }

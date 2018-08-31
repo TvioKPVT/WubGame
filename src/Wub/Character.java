@@ -11,11 +11,15 @@ public class Character {
     public Thing weapon = null;
     int STR;
     int END;
+    int AGI;
     int HP;
     int CurrHP;
+    int CurrAP;
+    int AP;
     int EXP;
     int EXPforkill;
     int LVL;
+    int ChanceToHit;
     boolean isAlive=true;
     boolean cave = false;
 
@@ -29,10 +33,14 @@ public class Character {
         if (this.species == "Humanoid Player") {
             STR = dice.d310() + 5;
             END = dice.d310() + 5;
+            AGI = dice.d310() + 5;
+            AP = 55 + (AGI *3);
             HP = 100 + (END * 3);
+            ChanceToHit = 2*STR;
             CurrHP = HP;
+            CurrAP = AP;
             EXP = 0;
-            LVL = 10;
+            LVL = 1;
             isAlive = true;
             cave = false;
 
@@ -48,28 +56,46 @@ public class Character {
         } else if (this.species == "Wolf") {
             STR = dice.d310() + 7;
             END = dice.d310() + 3;
+            AGI = dice.d310() + 5;
+            AP = 55 + (AGI *3);
             HP = 100 + (END * 3);
             CurrHP = HP;
+            CurrAP = AP;
+            ChanceToHit = 2*STR;
             isAlive = true;
             EXPforkill = 100;
             LVL = 1;
+            Thing jaws = PredefinedItems.collection.get("jaws");
+            inventory.add(jaws);
+            weapon = jaws;
 
 
         } else if (this.species == "Bat") {
 
             STR = dice.d310() + 2;
             END = dice.d310() + 2;
+            AGI = dice.d310() + 5;
+            AP = 55 + (AGI *3);
             HP = 100 + (END * 3);
             CurrHP = HP;
+            CurrAP = AP;
+            ChanceToHit = 2*STR;
             isAlive = true;
             EXPforkill = 75;
             LVL = 1;
+            Thing jaws = PredefinedItems.collection.get("jaws");
+            inventory.add(jaws);
+            weapon = jaws;
 
         } else if (this.species == "Humanoid") {
             STR = dice.d310() + 5;
             END = dice.d310() + 5;
+            AGI = dice.d310() + 5;
+            AP = 55 + (AGI *3);
             HP = 100 + (END * 3);
             CurrHP = HP;
+            CurrAP = AP;
+            ChanceToHit = 2*STR;
             isAlive = true;
             cave = false;
             EXPforkill = 200;
@@ -140,6 +166,8 @@ public class Character {
         }
         target.CurrHP -= n;
         if (target.CurrHP <= 0) target.isAlive = false;
+        this.CurrAP = this.CurrAP - this.weapon.apcost;
+
         return n;
 
     }

@@ -11,10 +11,12 @@ public class InventoryController {
 
     public Label pstr;
     public Label pend;
+    public Label pagi;
     public Label pcurrhp;
     public Label pexp;
     public Label plvl;
     public ProgressBar playerhp;
+    public Label pap;
     public Label weapon;
     public Button back;
     public Button use;
@@ -32,8 +34,10 @@ public void invinitialize(){
         pexp.setText(String.valueOf(game.player.EXP)+" EXP");
         plvl.setText(String.valueOf(game.player.LVL)+ "LVL");
         weapon.setText(String.valueOf(game.player.weapon));
+        pap.setText(String.valueOf((game.player.AP))+ " AP");
         pstr.setText("STR: "+Integer.toString(game.player.STR));
         pend.setText("END: " + Integer.toString(game.player.END));
+        pagi.setText("AGI: "+Integer.toString(game.player.AGI));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
         playerhp.setStyle("-fx-accent: #991111");

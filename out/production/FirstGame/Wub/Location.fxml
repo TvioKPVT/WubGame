@@ -12,10 +12,11 @@
     <left>
         <VBox prefHeight="338.0" prefWidth="100.0" spacing="5.0">
             <children>
-                <Label fx:id="pstr" text="Label" textFill="#eeeeee" />
-                <Label fx:id="pend" text="Label" textFill="#eeeeee" />
-                <Label fx:id="pcurrhp" text="Label" textFill="#eeeeee" />
-            <Label fx:id="pspecies" text="Label" textFill="#eeeeee" />
+                <Label fx:id="pstr" text="STR" textFill="#eeeeee" />
+                <Label fx:id="pend" text="END" textFill="#eeeeee" />
+            <Label fx:id="pagi" text="AGI" textFill="WHITE" />
+                <Label fx:id="pcurrhp" text="HP" textFill="#eeeeee" />
+            <Label fx:id="pspecies" text="Species" textFill="#eeeeee" />
             <ProgressBar fx:id="playerhp" blendMode="OVERLAY" minWidth="-Infinity" prefWidth="100.0" progress="0.0" />
             </children>
          <padding>
@@ -29,7 +30,7 @@
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
             <children>
-                <Label fx:id="loctext" text="Label" textFill="WHITE" />
+                <Label fx:id="loctext" text="LocText" textFill="WHITE" />
             </children>
          <padding>
             <Insets left="5.0" top="5.0" />
@@ -40,7 +41,6 @@
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="explore" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Исследовать окрестности" textFill="WHITE" />
-            <Button fx:id="enterthebattle" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В бой!" textFill="WHITE" />
             <Button fx:id="gotocave" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В пещеры" textFill="WHITE" />
             <Button fx:id="inventory" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Инвентарь" textFill="WHITE">
                <HBox.margin>
