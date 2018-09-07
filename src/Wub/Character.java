@@ -22,10 +22,13 @@ public class Character {
     int ChanceToHit;
     boolean isAlive=true;
     boolean cave = false;
+    boolean city = false;
 
     String species=null;
     String currloc = "forest";
     List<Thing> inventory = new ArrayList<>();
+
+
 
     private Dice dice = new Dice();
     //создание персонажей
@@ -43,6 +46,7 @@ public class Character {
             LVL = 1;
             isAlive = true;
             cave = false;
+            inventory = new ArrayList<>();
 
             Thing sword = PredefinedItems.collection.get("sword");
             inventory.add(sword);
@@ -203,6 +207,11 @@ public class Character {
 
         return n;
     }
+  /*  public void clearinv() {
+        for (int i = 0; i<this.inventory.size(); i++){
+            this.inventory.remove(i);
+        }
+    }*/
 }
 //Методы, доступные игроку.
 class Player extends Character{

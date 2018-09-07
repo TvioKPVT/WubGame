@@ -42,6 +42,7 @@
          <children>
             <Button fx:id="explore" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Исследовать окрестности" textFill="WHITE" />
             <Button fx:id="gotocave" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В пещеры" textFill="WHITE" />
+            <Button fx:id="gotocity" mnemonicParsing="false" style="-fx-background-color: #555555;" text="В город" textFill="WHITE" />
             <Button fx:id="inventory" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Инвентарь" textFill="WHITE">
                <HBox.margin>
                   <Insets left="50.0" />

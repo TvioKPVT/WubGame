@@ -1,6 +1,7 @@
 package Wub;
 
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -24,6 +25,7 @@ public Button youwin;
 public Button tryagain;
 public ProgressBar playerhp;
 public ProgressBar enemyhp;
+
 Dice dice = new Dice();
 
 //объявление экземпляра класса врага. Перенес сюда из-за генерации расы. Если в дальнейшем возникнут косяки, потому что объявляется экземпляр не на старте игры, а непосредственно перед боем, то
@@ -48,10 +50,12 @@ Game game = Main.instance.game;
 
                 //проверка на смерть игрока
                 if (game.player.isAlive == false) {
-                    makeattackbutton.setVisible(false);
+
                     makeheal.setVisible(false);
                     battletext.setText(k + "\nВы всё.");
                     tryagain.setVisible(true);
+                    makeattackbutton.setVisible(false);
+
                 }
             }
             else{
@@ -90,6 +94,9 @@ Game game = Main.instance.game;
             makeattackbutton.setVisible(false);
             game.player.CurrAP = game.player.AP;
             enemyTurn();
+        }
+        else if (game.player.CurrHP<0){     // проверка на несдохшесть, иначе при смерти можно продолжать игру до посинения
+            makeattackbutton.setVisible(false);
         }
         else makeattackbutton.setVisible(true);
 

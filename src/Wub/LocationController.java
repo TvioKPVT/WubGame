@@ -19,6 +19,7 @@ public class LocationController {
     public Button gotocave;
     public Button explore;
     public Button inventory;
+    public Button gotocity;
     public ProgressBar playerhp;
 
 
@@ -70,7 +71,9 @@ public class LocationController {
 //переключение сцены на лес. Так же участвует в инициализации стартовой локации.
     public void gotoforest(){
         loctext.setText("Вы в лесу. Тут лесяво.");
+        game.player.currloc = "forest";
         gotocave.setOnAction(e->gotocaves());
+        gotocity.setOnAction(e-> gotocity());
 
         if (game.player.cave== false){
             gotocave.setVisible(false);
@@ -79,8 +82,16 @@ public class LocationController {
             gotocave.setVisible(true);
         }
 
+        if (game.player.city== false){
+            gotocity.setVisible(false);
+        }
+        else{
+            gotocity.setVisible(true);
+        }
+
 
         gotocave.setText("В пещеры");
+        gotocity.setText("В город");
 
         explore.setOnAction(e ->{
             Dice dice = new Dice();
@@ -94,17 +105,53 @@ public class LocationController {
                     e1.printStackTrace();
                 }
             }
-            else if (a>=4 && a <7 && game.player.cave==false){
+            else if (a>=6 && a <=7 && game.player.cave==false){
                 String n = loctext.getText();
                 loctext.setText(n+"\nВы нашли пещеры!");
                 gotocave.setVisible(true);
                 game.player.cave=true;
+            }
+            else if (a>=4 && a <=5 && game.player.cave==false){
+                String n = loctext.getText();
+                loctext.setText(n+"\nВы нашли город!");
+                gotocity.setVisible(true);
+                game.player.city=true;
             }
             else {
                 rollforlut();
             }
         });
 
+    }
+
+    public void gotocity() {
+        loctext.setText("Вы в городе. Тут всякое");
+        game.player.currloc = "city";
+        gotocity.setText("Вернуться в лес");
+
+        //кнопка, отвечающая за исследования на локации Пещеры
+        /*explore.setOnAction(e -> {
+            Dice dice = new Dice();
+            int a = dice.d10();
+
+            if (a <= 3) {
+                try {
+                    Main.instance.switchScene("Battle.fxml");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            } else {
+                rollforlut();
+            }
+
+
+        });*/
+
+        gotocave.setVisible(false);
+
+        gotocity.setOnAction(e -> {
+            gotoforest();
+        });
     }
 
 //инициализация уровня на старте.
@@ -123,6 +170,7 @@ public class LocationController {
 
 
         gotocave.setOnAction(e->gotocaves());
+        gotocity.setOnAction(e-> gotocity());
 
         inventory.setOnAction(e->{
             try {
