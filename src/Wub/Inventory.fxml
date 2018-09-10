@@ -50,6 +50,8 @@
          <children>
             <Label fx:id="weapon" layoutX="30.0" layoutY="112.0" text="Hand" textFill="WHITE" />
             <Label layoutX="30.0" layoutY="95.0" text="Оружие:" textFill="WHITE" />
+            <Label layoutX="104.0" layoutY="95.0" text="Броня:" textFill="WHITE" />
+            <Label fx:id="armorlabel" layoutX="105.0" layoutY="112.0" text="Armor" textFill="WHITE" />
          </children>
       </Pane>
    </right>

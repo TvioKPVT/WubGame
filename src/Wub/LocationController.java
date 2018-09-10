@@ -111,7 +111,7 @@ public class LocationController {
                 gotocave.setVisible(true);
                 game.player.cave=true;
             }
-            else if (a>=4 && a <=5 && game.player.cave==false){
+            else if (a>=4 && a <=5 && game.player.city==false){
                 String n = loctext.getText();
                 loctext.setText(n+"\nВы нашли город!");
                 gotocity.setVisible(true);
@@ -129,7 +129,7 @@ public class LocationController {
         game.player.currloc = "city";
         gotocity.setText("Вернуться в лес");
 
-        //кнопка, отвечающая за исследования на локации Пещеры
+        //кнопка, отвечающая за исследования на локации Город
         /*explore.setOnAction(e -> {
             Dice dice = new Dice();
             int a = dice.d10();

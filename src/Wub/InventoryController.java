@@ -18,6 +18,7 @@ public class InventoryController {
     public ProgressBar playerhp;
     public Label pap;
     public Label weapon;
+    public Label armorlabel;
     public Button back;
     public Button use;
     public ListView<Thing> inventoryListView = new ListView<Thing>();
@@ -27,6 +28,13 @@ public void invinitialize(){
 
     for (int i = 0; i<game.player.inventory.size();i++){
         inventoryListView.getItems().add(game.player.inventory.get(i));
+    }
+}
+public void reboot() {
+    try {
+        Main.instance.switchScene("Inventory.fxml");
+    } catch (IOException e1) {
+        e1.printStackTrace();
     }
 }
     public void initialize(){
@@ -39,12 +47,39 @@ public void invinitialize(){
         pend.setText("END: " + Integer.toString(game.player.END));
         pagi.setText("AGI: "+Integer.toString(game.player.AGI));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
+        armorlabel.setText(String.valueOf(game.player.armor));
         playerhp.setProgress(game.player.percentHP());
         playerhp.setStyle("-fx-accent: #991111");
 
         inventoryListView.getItems().removeAll();
+
+
+
+
 //перекидывание всего инвентаря в просмотрщик
         invinitialize();
+
+        inventoryListView.setOnMouseClicked(e->{
+            int n = inventoryListView.getFocusModel().getFocusedIndex();
+
+            Thing current_thing = game.player.inventory.get(n);
+
+            if(current_thing.type.equals(Thing.type_options.CONSUMABLE)){
+                use.setText("Использовать");
+
+
+            }
+           else if(current_thing.type.equals(Thing.type_options.WEAPON )){
+                use.setText("Экипировать");
+
+            }
+
+            else if (current_thing.type.equals(Thing.type_options.ARMOR)){
+                use.setText("Экипировать");
+
+            }
+
+        });
 
         back.setOnAction(event ->{
 
@@ -71,15 +106,25 @@ public void invinitialize(){
                        if (game.player.CurrHP > game.player.HP){game.player.CurrHP = game.player.HP;}
                        game.player.inventory.remove(n);
 
-                       try {
-                           Main.instance.switchScene("Inventory.fxml");
-                       } catch (IOException e1) {
-                           e1.printStackTrace();
-                       }
+                      reboot();
 
 
                    }
 
+            }
+
+            else if (current_thing.type.equals(Thing.type_options.WEAPON)){
+
+                game.player.weapon = current_thing;
+
+                reboot();
+            }
+
+            else if (current_thing.type.equals(Thing.type_options.ARMOR)){
+
+                game.player.armor = current_thing;
+
+                reboot();
             }
         });
 

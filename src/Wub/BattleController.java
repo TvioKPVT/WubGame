@@ -1,5 +1,6 @@
 package Wub;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
@@ -23,8 +24,12 @@ public Button makeattackbutton;
 public Button makeheal;
 public Button youwin;
 public Button tryagain;
+
 public ProgressBar playerhp;
 public ProgressBar enemyhp;
+public ScrollPane battlescroll;
+
+
 
 Dice dice = new Dice();
 
@@ -39,7 +44,7 @@ Game game = Main.instance.game;
     //ответочка
     public void enemyTurn() {
         while (enemy.CurrAP>=enemy.weapon.apcost){
-            if (dice.d100()<enemy.ChanceToHit) {
+            if (dice.d100()-20<enemy.ChanceToHit) { //временно увеличил шанс на попадание. Ввести скиллы и убрать
                 String k = battletext.getText();
                 battletext.setText(k + "\nВраг нанес Вам " + Integer.toString(enemy.attack(game.player)) + " единиц урона.");
                 enemy.CurrAP = enemy.CurrAP - enemy.weapon.apcost;
@@ -106,6 +111,8 @@ Game game = Main.instance.game;
 
 
 public void initialize(){
+
+
     enemy.createCharacter();
     enemy.lvlroll(game.player);
     apcheck();
@@ -126,7 +133,7 @@ public void initialize(){
     especies.setText(enemy.species+" "+enemy.LVL+" LVL");
     playerhp.setStyle("-fx-accent: #991111");
     enemyhp.setStyle("-fx-accent: #991111");
-    eweapon.setText(String.valueOf(enemy.weapon));
+    eweapon.setText(String.valueOf(enemy.weapon+ "\n" +enemy.armor));
 
 
    makehealcheck();
@@ -134,11 +141,14 @@ public void initialize(){
     tryagain.setVisible(false);
     youwin.setVisible(false);
 
+    battlescroll.setStyle("-fx-background: #333333");
+
+
     battletext.setText("Вы видите врага.");
 
     //кнопка атаки.
     makeattackbutton.setOnAction(e -> {
-        if (dice.d100()<game.player.ChanceToHit){
+        if (dice.d100()-20<game.player.ChanceToHit){  //временно увеличил шанс на попадание. Ввести скиллы и убрать
 
             String w = battletext.getText();
 
