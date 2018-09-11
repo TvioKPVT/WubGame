@@ -2,9 +2,12 @@ package Wub;
 
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InventoryController {
     Game game = Main.instance.game;
@@ -22,13 +25,32 @@ public class InventoryController {
     public Button back;
     public Button use;
     public ListView<Thing> inventoryListView = new ListView<Thing>();
+    public Map<Thing, Integer> tempmap = new HashMap<Thing, Integer>();
+
+
+    public void stacking(){
+        for (int i = 0; i<game.player.inventory.size();i++){
+            Thing current_thing = game.player.inventory.get(i);
+              if (tempmap.containsKey(current_thing)){
+                  tempmap.put(current_thing,tempmap.get(current_thing)+1);
+              }
+              else {
+                  tempmap.put(current_thing,1);
+              }
+        }
+    }
+
 
 //инициализация списка инвентаря. На случай, если пронадобится.
-public void invinitialize(){
+    public void invinitialize(){
+        stacking();
 
     for (int i = 0; i<game.player.inventory.size();i++){
         inventoryListView.getItems().add(game.player.inventory.get(i));
     }
+
+
+
 }
 public void reboot() {
     try {
@@ -56,8 +78,11 @@ public void reboot() {
 
 
 
+
 //перекидывание всего инвентаря в просмотрщик
         invinitialize();
+
+
 
         inventoryListView.setOnMouseClicked(e->{
             int n = inventoryListView.getFocusModel().getFocusedIndex();
