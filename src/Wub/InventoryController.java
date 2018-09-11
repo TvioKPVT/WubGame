@@ -21,6 +21,9 @@ public class InventoryController {
     public Label pap;
     public Label weapon;
     public Label armorlabel;
+    public Label description;
+    public Label weapon_l;
+    public Label armor_l;
     public Button back;
     public Button use;
     public ListView<GUIThing> inventoryListView = new ListView<GUIThing>();
@@ -75,8 +78,13 @@ public void reboot() {
         pagi.setText("AGI: "+Integer.toString(game.player.AGI));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         armorlabel.setText(String.valueOf(game.player.armor));
+        description.setText("");
         playerhp.setProgress(game.player.percentHP());
         playerhp.setStyle("-fx-accent: #991111");
+        back.setText(TextVar.InventoryText.back_button);
+        use.setText(TextVar.InventoryText.inv_use_button);
+        weapon_l.setText(TextVar.InventoryText.weapon);
+        armor_l.setText(TextVar.InventoryText.armor);
 
         inventoryListView.getItems().removeAll();
 
@@ -92,26 +100,29 @@ public void reboot() {
         inventoryListView.setOnMouseClicked(e->{
             GUIThing n = inventoryListView.getFocusModel().getFocusedItem();
 
+
             Thing current_thing = game.player.inventory.get(n.index);
+            description.setText(String.valueOf(current_thing.get_description(game.player)));
 
             if(current_thing.type.equals(Thing.type_options.CONSUMABLE)){
-                use.setText("Использовать");
+                use.setText(TextVar.InventoryText.inv_use_button);
 
 
             }
            else if(current_thing.type.equals(Thing.type_options.WEAPON )){
-                use.setText("Экипировать");
+                use.setText(TextVar.InventoryText.inv_use_button_1);
 
             }
 
             else if (current_thing.type.equals(Thing.type_options.ARMOR)){
-                use.setText("Экипировать");
+                use.setText(TextVar.InventoryText.inv_use_button_1);
 
             }
 
         });
 
         back.setOnAction(event ->{
+
 
                 inventoryListView.getItems().removeAll();
 

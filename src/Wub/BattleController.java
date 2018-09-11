@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 
 public class BattleController {
 public Label pstr;
@@ -21,7 +22,7 @@ public Label battletext;
 public Label especies;
 public Label eweapon;
 public Button makeattackbutton;
-public Button makeheal;
+
 public Button youwin;
 public Button tryagain;
 
@@ -46,18 +47,18 @@ Game game = Main.instance.game;
         while (enemy.CurrAP>=enemy.weapon.apcost){
             if (dice.d100()-20<enemy.ChanceToHit) { //временно увеличил шанс на попадание. Ввести скиллы и убрать
                 String k = battletext.getText();
-                battletext.setText(k + "\nВраг нанес Вам " + Integer.toString(enemy.attack(game.player)) + " единиц урона.");
+                battletext.setText(k + MessageFormat.format(TextVar.Battle.enemy_deal_damage,Integer.toString(enemy.attack(game.player))));
                 enemy.CurrAP = enemy.CurrAP - enemy.weapon.apcost;
                 playerhp.setProgress(game.player.percentHP());
                 pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
-                makehealcheck();
+
 
 
                 //проверка на смерть игрока
                 if (game.player.isAlive == false) {
 
-                    makeheal.setVisible(false);
-                    battletext.setText(k + "\nВы всё.");
+
+                    battletext.setText(k + TextVar.Battle.you_died);
                     tryagain.setVisible(true);
                     makeattackbutton.setVisible(false);
 
@@ -65,9 +66,9 @@ Game game = Main.instance.game;
             }
             else{
                 String k = battletext.getText();
-                battletext.setText(k+ "\nВраг промахнулся.");
+                battletext.setText(k+ TextVar.Battle.enemy_missed);
                 enemy.CurrAP = enemy.CurrAP - enemy.weapon.apcost;
-                makehealcheck();
+
             }
         }
         enemy.CurrAP = enemy.AP;
@@ -75,14 +76,7 @@ Game game = Main.instance.game;
 
     }
     //проверка на доступность хила
-    public void makehealcheck(){
-        if (game.player.CurrHP==game.player.HP){
-            makeheal.setDisable(true);
-        }
-        else {
-            makeheal.setDisable(false);
-            }
-    }
+
 
     public void rollforlut(){
         String w = battletext.getText();
@@ -135,8 +129,13 @@ public void initialize(){
     enemyhp.setStyle("-fx-accent: #991111");
     eweapon.setText(String.valueOf(enemy.weapon+ "\n" +enemy.armor));
 
+    makeattackbutton.setText(TextVar.Battle.attack_button);
+    tryagain.setText(TextVar.Battle.try_again_button);
+    youwin.setText(TextVar.Battle.victory_button);
 
-   makehealcheck();
+
+
+
 
     tryagain.setVisible(false);
     youwin.setVisible(false);
@@ -144,7 +143,7 @@ public void initialize(){
     battlescroll.setStyle("-fx-background: #333333");
 
 
-    battletext.setText("Вы видите врага.");
+    battletext.setText(TextVar.Battle.enemy_detected);
 
     //кнопка атаки.
     makeattackbutton.setOnAction(e -> {
@@ -152,7 +151,7 @@ public void initialize(){
 
             String w = battletext.getText();
 
-            battletext.setText(w+"\nВы нанесли "+Integer.toString(game.player.attack(enemy))+ " единиц урона." );
+            battletext.setText(w+ MessageFormat.format(TextVar.Battle.player_deal_damage,Integer.toString(game.player.attack(enemy))) );
             ecurrhp.setText("HP: " + Integer.toString(enemy.CurrHP));
             pcap.setText(String.valueOf("AP: " + Integer.toString(game.player.CurrAP)));
             enemyhp.setProgress(enemy.percentHP());
@@ -161,9 +160,9 @@ public void initialize(){
                 //проверка на смерть врага
                 if (enemy.isAlive == false) {
                     makeattackbutton.setVisible(false);
-                    makeheal.setVisible(false);
+
                     youwin.setVisible(true);
-                    battletext.setText(w + "\nВраг сдох!");
+                    battletext.setText(w + TextVar.Battle.enemy_died);
                     game.player.EXP += enemy.EXPforkill;
                     rollforlut();
                 }
@@ -172,7 +171,7 @@ public void initialize(){
         else {
             String w = battletext.getText();
 
-            battletext.setText(w+"\nПромазал, лошара." );
+            battletext.setText(w+TextVar.Battle.player_missed );
             game.player.CurrAP= game.player.CurrAP - game.player.weapon.apcost;
             pcap.setText(String.valueOf("AP: " + Integer.toString(game.player.CurrAP)));
             apcheck();
@@ -181,15 +180,8 @@ public void initialize(){
 
 
     });
-    //кнопка хила
-    makeheal.setOnAction(e->{
-        String w = battletext.getText();
-        apcheck();
-        battletext.setText(w+"\nВы вылечили "+Integer.toString(game.player.heal())+ " единиц здоровья." );
-        playerhp.setProgress(game.player.percentHP());
-        pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
-       // enemyTurn();
-    });
+
+
 
 
 

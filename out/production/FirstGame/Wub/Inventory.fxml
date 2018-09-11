@@ -32,7 +32,7 @@
             <Label fx:id="pend" text="END" textFill="WHITE" />
             <Label fx:id="pagi" text="AGI" textFill="WHITE" />
             <Label fx:id="pcurrhp" text="HP" textFill="WHITE" />
-            <ProgressBar fx:id="playerhp" blendMode="OVERLAY" prefWidth="100.0" progress="0.0" />
+            <ProgressBar fx:id="playerhp" blendMode="OVERLAY" prefHeight="18.0" prefWidth="87.0" progress="0.0" />
             <Label fx:id="pap" text="AP" textFill="WHITE" />
             <Label fx:id="pexp" text="EXP" textFill="WHITE" />
             <Label fx:id="plvl" text="LVL" textFill="WHITE" />
@@ -45,15 +45,16 @@
    <right>
       <Pane prefHeight="300.0" prefWidth="264.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="weapon" layoutX="85.0" layoutY="112.0" text="Hand" textFill="WHITE" />
-            <Label layoutX="85.0" layoutY="95.0" text="Оружие:" textFill="WHITE" />
-            <Label layoutX="174.0" layoutY="95.0" text="Броня:" textFill="WHITE" />
-            <Label fx:id="armorlabel" layoutX="175.0" layoutY="112.0" text="Armor" textFill="WHITE" />
+            <Label fx:id="weapon" layoutX="14.0" layoutY="115.0" text="Hand" textFill="WHITE" />
+            <Label fx:id="weapon_l" layoutX="14.0" layoutY="98.0" text="Оружие:" textFill="WHITE" />
+            <Label fx:id="armor_l" layoutX="103.0" layoutY="98.0" text="Броня:" textFill="WHITE" />
+            <Label fx:id="armorlabel" layoutX="104.0" layoutY="115.0" text="Armor" textFill="WHITE" />
+            <Label fx:id="description" layoutX="14.0" layoutY="220.0" text="Description" textFill="WHITE" />
          </children>
       </Pane>
    </right>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="300.0" prefWidth="166.0" BorderPane.alignment="CENTER">
          <children>
             <ListView fx:id="inventoryListView" blendMode="OVERLAY" layoutX="-2.0" layoutY="-1.0" prefHeight="301.0" prefWidth="239.0" />
          </children>

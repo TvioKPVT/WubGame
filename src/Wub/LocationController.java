@@ -7,6 +7,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 
 public class LocationController {
     public Label pstr;
@@ -34,15 +35,15 @@ public class LocationController {
             String w = loctext.getText();
             Thing berry = PredefinedItems.collection.get("berry");
             game.player.inventory.add(berry);
-            loctext.setText(w+"\nВы полутали "+berry+ "." );
+            loctext.setText(w+ MessageFormat.format ( TextVar.LocationsText.berry_gained, berry) );
         //}
     }
 
 //переключение сцены на пещеры
     public void gotocaves(){
-        loctext.setText("Вы в пещере. Тут мокро и воняет.");
+        loctext.setText(TextVar.LocationsText.cave_on_enter);
         game.player.currloc = "caves";
-        gotocave.setText("Вернуться в лес");
+        gotocave.setText(TextVar.LocationsText.gotoforest_button);
 
         //кнопка, отвечающая за исследования на локации Пещеры
         explore.setOnAction(e ->{
@@ -70,7 +71,7 @@ public class LocationController {
     }
 //переключение сцены на лес. Так же участвует в инициализации стартовой локации.
     public void gotoforest(){
-        loctext.setText("Вы в лесу. Тут лесяво.");
+        loctext.setText(TextVar.LocationsText.forest_on_enter);
         game.player.currloc = "forest";
         gotocave.setOnAction(e->gotocaves());
         gotocity.setOnAction(e-> gotocity());
@@ -90,8 +91,8 @@ public class LocationController {
         }
 
 
-        gotocave.setText("В пещеры");
-        gotocity.setText("В город");
+        gotocave.setText(TextVar.LocationsText.gotocave_button);
+        gotocity.setText(TextVar.LocationsText.gotocity_button);
 
         explore.setOnAction(e ->{
             Dice dice = new Dice();
@@ -107,13 +108,13 @@ public class LocationController {
             }
             else if (a>=6 && a <=7 && game.player.cave==false){
                 String n = loctext.getText();
-                loctext.setText(n+"\nВы нашли пещеры!");
+                loctext.setText(n+TextVar.LocationsText.obtaining_caves);
                 gotocave.setVisible(true);
                 game.player.cave=true;
             }
             else if (a>=4 && a <=5 && game.player.city==false){
                 String n = loctext.getText();
-                loctext.setText(n+"\nВы нашли город!");
+                loctext.setText(n+TextVar.LocationsText.obtaining_city);
                 gotocity.setVisible(true);
                 game.player.city=true;
             }
@@ -125,7 +126,7 @@ public class LocationController {
     }
 
     public void gotocity() {
-        loctext.setText("Вы в городе. Тут всякое");
+        loctext.setText(TextVar.LocationsText.city_on_enter);
         game.player.currloc = "city";
         gotocity.setText("Вернуться в лес");
 
@@ -166,6 +167,9 @@ public class LocationController {
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
         pspecies.setText(game.player.species);
+        gotocave.setText(TextVar.LocationsText.gotocave_button);
+        explore.setText(TextVar.LocationsText.explore_button);
+        inventory.setText(TextVar.LocationsText.inv_button);
 
 
 

@@ -62,7 +62,6 @@
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="makeattackbutton" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Атаковать" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" />
-            <Button fx:id="makeheal" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Полечиться" textFill="WHITE" />
             <Button fx:id="youwin" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Вы победили" textFill="WHITE" />
             <Button fx:id="tryagain" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Попробовать еще раз" textFill="WHITE" />
          </children>

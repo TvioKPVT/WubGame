@@ -1,9 +1,11 @@
 package Wub;
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Thing {
+    Game game = Main.instance.game;
     //internal use
     Dice dice = new Dice();
     enum type_options { DEFAULT, WEAPON, ARMOR, CONSUMABLE }
@@ -11,12 +13,12 @@ public class Thing {
     //external use
     //int damage, heal;
     String title = "Thing";
-    String description = "";
     int apcost = 0;
     type_options type = type_options.DEFAULT;
 
     //public thing functions
     public int get_damage(Character character){return 0;}
+    public String get_description (Character character){return "";}
     public int get_healed(){return 0;}
     public String toString(){return title;}
     public boolean canwear;
@@ -29,7 +31,8 @@ public class Thing {
 class Axe extends Thing{
 
     Axe(){
-        title = "Топор";
+        title = TextVar.Weapon.weapon_name_1;
+
         type = type_options.WEAPON;
         apcost = 25;
         canwear = true;
@@ -37,12 +40,13 @@ class Axe extends Thing{
     public int get_damage(Character character){
         return (2 * character.STR) + 5 + dice.d10() + 1;
     }
+    public String get_description (Character character){return MessageFormat.format ( TextVar.Weapon.weapon_description_1, get_damage(character));}
 }
 
 class Skin extends Thing {
 
     Skin(int DT) {
-        title ="Шкура";
+        title = TextVar.Armor.armor_name_1;
         type =type_options.ARMOR;
         dt = DT;
         canwear = true;
@@ -53,18 +57,20 @@ class Skin extends Thing {
 class LeatherArmor extends Thing{
 
     LeatherArmor(){
-        title ="Кожаная броня";
+        title =TextVar.Armor.armor_name_2;
         type = type_options.ARMOR;
         dt = 6;
         canwear = true;
+
     }
+    public String get_description (Character character){return TextVar.Armor.armor_description_2;}
 }
 
 
 class Sword extends Thing{
 
     Sword(){
-        title = "Меч";
+        title = TextVar.Weapon.weapon_name_2;
         type = type_options.WEAPON;
         apcost = 20;
         canwear = true;
@@ -73,6 +79,7 @@ class Sword extends Thing{
     public int get_damage(Character character){
         return (2 * character.STR) + 10 + dice.d10() + 1;
     }
+    public String get_description (Character character){return MessageFormat.format ( TextVar.Weapon.weapon_description_2, get_damage(character));}
 
 
 }
@@ -80,7 +87,7 @@ class Sword extends Thing{
 class Jaws extends Thing{
 
     Jaws(){
-        title = "Челюсти";
+        title = TextVar.Weapon.weapon_name_3;
         type = type_options.WEAPON;
         apcost = 15;
         canwear = true;
@@ -95,11 +102,12 @@ class Jaws extends Thing{
 class Berry extends Thing {
 
     Berry(){
-        title = "Ягодка";
+        title = TextVar.Consumnables.con_name_1;
         type = type_options.CONSUMABLE;
     }
 
     public int get_healed(){return 200;}
+    public String get_description (Character character){return TextVar.Consumnables.con_description_1;}
 }
 
 

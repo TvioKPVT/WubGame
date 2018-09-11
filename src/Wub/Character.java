@@ -54,14 +54,14 @@ public class Character {
             LVL = 1;
             isAlive = true;
             cave = false;
+            city = false;
             inventory = new ArrayList<>();
             inventory.add(leatherarmor);
             inventory.add(sword);
             weapon = sword;
             armor = leatherarmor;
             inventory.add(berry);
-            inventory.add(axe);
-            inventory.add(skin);
+
 
 
         } else if (this.species == "Wolf") {
