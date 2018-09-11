@@ -116,3 +116,4 @@ class PredefinedItems {
         collection.put("leather armor", new LeatherArmor());
     }
 }
+

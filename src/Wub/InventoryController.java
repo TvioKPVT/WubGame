@@ -6,8 +6,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class InventoryController {
     Game game = Main.instance.game;
@@ -24,29 +23,35 @@ public class InventoryController {
     public Label armorlabel;
     public Button back;
     public Button use;
-    public ListView<Thing> inventoryListView = new ListView<Thing>();
-    public Map<Thing, Integer> tempmap = new HashMap<Thing, Integer>();
+    public ListView<GUIThing> inventoryListView = new ListView<GUIThing>();
 
-
-    public void stacking(){
-        for (int i = 0; i<game.player.inventory.size();i++){
-            Thing current_thing = game.player.inventory.get(i);
-              if (tempmap.containsKey(current_thing)){
-                  tempmap.put(current_thing,tempmap.get(current_thing)+1);
-              }
-              else {
-                  tempmap.put(current_thing,1);
-              }
-        }
-    }
 
 
 //инициализация списка инвентаря. На случай, если пронадобится.
     public void invinitialize(){
-        stacking();
+    ArrayList<GUIThing> templist = new ArrayList<GUIThing>();
 
     for (int i = 0; i<game.player.inventory.size();i++){
-        inventoryListView.getItems().add(game.player.inventory.get(i));
+        Thing current_thing = game.player.inventory.get(i);
+        int existed_index = -1;
+        for (int j = 0; j<templist.size(); j++){
+            if (templist.get(j).thing.equals(current_thing)){
+                existed_index = j;
+                break;
+            }
+        }
+
+        if (existed_index != -1){
+            templist.get(existed_index).counter += 1;
+        }
+        else {
+            GUIThing current_guithing = new GUIThing(current_thing, i);
+            templist.add(current_guithing);
+        }
+    }
+
+    for (int i = 0; i<templist.size();i++){
+        inventoryListView.getItems().add(templist.get(i));
     }
 
 
@@ -85,9 +90,9 @@ public void reboot() {
 
 
         inventoryListView.setOnMouseClicked(e->{
-            int n = inventoryListView.getFocusModel().getFocusedIndex();
+            GUIThing n = inventoryListView.getFocusModel().getFocusedItem();
 
-            Thing current_thing = game.player.inventory.get(n);
+            Thing current_thing = game.player.inventory.get(n.index);
 
             if(current_thing.type.equals(Thing.type_options.CONSUMABLE)){
                 use.setText("Использовать");
@@ -118,9 +123,8 @@ public void reboot() {
         } );
 
         use.setOnAction(event -> {
-           int n = inventoryListView.getFocusModel().getFocusedIndex();
-
-           Thing current_thing = game.player.inventory.get(n);
+           GUIThing n = inventoryListView.getFocusModel().getFocusedItem();
+           Thing current_thing = game.player.inventory.get(n.index);
            //проверка на тип штуки, которую пытаешься использовать
             if(current_thing.type.equals(Thing.type_options.CONSUMABLE)) {
 
@@ -129,7 +133,7 @@ public void reboot() {
 
                        game.player.CurrHP += current_thing.get_healed();
                        if (game.player.CurrHP > game.player.HP){game.player.CurrHP = game.player.HP;}
-                       game.player.inventory.remove(n);
+                       game.player.inventory.remove(n.index);
 
                       reboot();
 
