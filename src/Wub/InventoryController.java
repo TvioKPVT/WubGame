@@ -2,10 +2,10 @@ package Wub;
 
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class InventoryController {
@@ -24,6 +24,7 @@ public class InventoryController {
     public Label description;
     public Label weapon_l;
     public Label armor_l;
+    public Label money;
     public Button back;
     public Button use;
     public ListView<GUIThing> inventoryListView = new ListView<GUIThing>();
@@ -85,6 +86,7 @@ public void reboot() {
         use.setText(TextVar.InventoryText.inv_use_button);
         weapon_l.setText(TextVar.InventoryText.weapon);
         armor_l.setText(TextVar.InventoryText.armor);
+        money.setText(MessageFormat.format(TextVar.InventoryText.money_label,game.player.money));
 
         inventoryListView.getItems().removeAll();
 
@@ -154,16 +156,19 @@ public void reboot() {
             }
 
             else if (current_thing.type.equals(Thing.type_options.WEAPON)){
-
+                game.player.inventory.add(game.player.weapon_equipped);
                 game.player.weapon = current_thing;
+                game.player.inventory.remove(current_thing);
+                game.player.weapon_equipped = current_thing;
 
                 reboot();
             }
 
             else if (current_thing.type.equals(Thing.type_options.ARMOR)){
-
+                game.player.inventory.add(game.player.armor_equipped);
                 game.player.armor = current_thing;
-
+                game.player.inventory.remove(current_thing);
+                game.player.armor_equipped = current_thing;
                 reboot();
             }
         });

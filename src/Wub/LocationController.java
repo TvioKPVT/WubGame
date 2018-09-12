@@ -21,6 +21,7 @@ public class LocationController {
     public Button explore;
     public Button inventory;
     public Button gotocity;
+    public Button gotoshop;
     public ProgressBar playerhp;
 
 
@@ -28,6 +29,51 @@ public class LocationController {
 
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
+
+    public void exploring(){
+        Dice dice = new Dice();
+        int a = dice.d10();
+        if (game.player.currloc == "forest") {
+            if (a <= 3) {
+
+                try {
+                    Main.instance.switchScene("Battle.fxml");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            } else if (a >= 6 && a <= 7 && game.player.cave == false) {
+                String n = loctext.getText();
+                loctext.setText(n + TextVar.LocationsText.obtaining_caves);
+                gotocave.setVisible(true);
+                game.player.cave = true;
+            } else if (a >= 4 && a <= 5 && game.player.city == false) {
+                String n = loctext.getText();
+                loctext.setText(n + TextVar.LocationsText.obtaining_city);
+                gotocity.setVisible(true);
+                game.player.city = true;
+            } else {
+                rollforlut();
+            }
+        }
+        else if (game.player.currloc == "city"){
+
+            if (a <= 3 && game.player.city_trader == false) {
+                String n = loctext.getText();
+                game.player.city_trader = true;
+                loctext.setText(n + TextVar.LocationsText.obtaining_shop);
+                gotoshop.setVisible(true);
+
+            } else {
+                String n = loctext.getText();
+
+                loctext.setText(n + TextVar.LocationsText.nothing);
+
+            }
+
+        }
+
+    }
+
     public void rollforlut(){
        // Dice dice = new Dice();
         //int n = dice.d10();
@@ -39,7 +85,7 @@ public class LocationController {
         //}
     }
 
-//переключение сцены на пещеры
+    //переключение сцены на пещеры
     public void gotocaves(){
         loctext.setText(TextVar.LocationsText.cave_on_enter);
         game.player.currloc = "caves";
@@ -90,38 +136,20 @@ public class LocationController {
             gotocity.setVisible(true);
         }
 
+        if (game.player.city_trader == false){
+            gotoshop.setVisible(false);
+        }
+        else {
+            gotoshop.setVisible(true);
+        }
+
 
         gotocave.setText(TextVar.LocationsText.gotocave_button);
         gotocity.setText(TextVar.LocationsText.gotocity_button);
 
         explore.setOnAction(e ->{
-            Dice dice = new Dice();
-            int a = dice.d10();
-
-            if(a<=3){
-
-                try {
-                    Main.instance.switchScene("Battle.fxml");
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-            else if (a>=6 && a <=7 && game.player.cave==false){
-                String n = loctext.getText();
-                loctext.setText(n+TextVar.LocationsText.obtaining_caves);
-                gotocave.setVisible(true);
-                game.player.cave=true;
-            }
-            else if (a>=4 && a <=5 && game.player.city==false){
-                String n = loctext.getText();
-                loctext.setText(n+TextVar.LocationsText.obtaining_city);
-                gotocity.setVisible(true);
-                game.player.city=true;
-            }
-            else {
-                rollforlut();
-            }
-        });
+            exploring();
+                    });
 
     }
 
@@ -130,23 +158,13 @@ public class LocationController {
         game.player.currloc = "city";
         gotocity.setText("Вернуться в лес");
 
-        //кнопка, отвечающая за исследования на локации Город
-        /*explore.setOnAction(e -> {
-            Dice dice = new Dice();
-            int a = dice.d10();
+        if (game.player.city_trader == false){
+            gotoshop.setVisible(false);
+        }
 
-            if (a <= 3) {
-                try {
-                    Main.instance.switchScene("Battle.fxml");
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            } else {
-                rollforlut();
-            }
-
-
-        });*/
+        else {
+            gotoshop.setVisible(true);
+        }
 
         gotocave.setVisible(false);
 
@@ -157,8 +175,20 @@ public class LocationController {
 
 //инициализация уровня на старте.
     public void initialize(){
-        playerhp.setStyle("-fx-accent: #991111");
-        gotoforest();
+
+
+        //Проверка на локацию при выходе из инвентаря.
+        if (game.player.currloc == "city"){
+            gotocity();
+        }
+        else if (game.player.currloc == "caves"){
+            gotocaves();
+        }
+        else {
+            gotoforest();
+        }
+
+
 
 
         pstr.setText("STR: "+Integer.toString(game.player.STR));
@@ -166,14 +196,17 @@ public class LocationController {
         pagi.setText("AGI: "+Integer.toString(game.player.AGI));
         pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
         playerhp.setProgress(game.player.percentHP());
+        playerhp.setStyle("-fx-accent: #991111");
         pspecies.setText(game.player.species);
         gotocave.setText(TextVar.LocationsText.gotocave_button);
         explore.setText(TextVar.LocationsText.explore_button);
         inventory.setText(TextVar.LocationsText.inv_button);
+        gotoshop.setText(TextVar.LocationsText.gotoshop_button);
 
 
 
-        gotocave.setOnAction(e->gotocaves());
+
+        gotocave.setOnAction(e-> gotocaves());
         gotocity.setOnAction(e-> gotocity());
 
         inventory.setOnAction(e->{
@@ -183,6 +216,15 @@ public class LocationController {
                 e1.printStackTrace();
             }
         } );
+
+        gotoshop.setOnAction(e ->{
+            try {
+                Main.instance.switchScene("Shop.fxml");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+        });
 
 
 

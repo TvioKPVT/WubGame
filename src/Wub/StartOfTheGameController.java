@@ -10,6 +10,7 @@ public class StartOfTheGameController {
 
     public void initialize() throws IOException {
         game.player.createCharacter();
+        start.setText(TextVar.LocationsText.start_button);
 
         start.setOnAction(e->{
             try {

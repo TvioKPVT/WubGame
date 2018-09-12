@@ -24,6 +24,8 @@ public class Character {
     boolean isAlive = true;
     boolean cave = false;
     boolean city = false;
+    boolean city_trader = false;
+    int money;
     Thing sword = PredefinedItems.collection.get("sword");
     Thing berry = PredefinedItems.collection.get("berry");
     Thing axe = PredefinedItems.collection.get("axe");
@@ -35,6 +37,9 @@ public class Character {
     String species = null;
     String currloc = "forest";
     List<Thing> inventory = new ArrayList<>();
+
+    Thing weapon_equipped = new Thing();
+    Thing armor_equipped = new Thing();
 
 
     private Dice dice = new Dice();
@@ -55,12 +60,17 @@ public class Character {
             isAlive = true;
             cave = false;
             city = false;
+            city_trader = false;
             inventory = new ArrayList<>();
-            inventory.add(leatherarmor);
-            inventory.add(sword);
+            inventory.add(axe);
+            inventory.add(skin);
             weapon = sword;
             armor = leatherarmor;
             inventory.add(berry);
+            money = 0;
+
+            weapon_equipped = sword;
+            armor_equipped =leatherarmor;
 
 
 

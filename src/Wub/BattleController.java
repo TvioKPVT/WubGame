@@ -79,12 +79,14 @@ Game game = Main.instance.game;
 
 
     public void rollforlut(){
+
         String w = battletext.getText();
         Dice dice = new Dice();
         int n = dice.d10();//заготовка для ролла лута, когда его будет больше, чем просто одна ягодка.
         Thing berry = PredefinedItems.collection.get("berry");
+        game.player.money+=n;
         game.player.inventory.add(berry);
-        battletext.setText(w+"\nВы полутали "+berry+ "." );
+        battletext.setText(w+MessageFormat.format(TextVar.Battle.loot,berry,n) );
 
     }
 
@@ -94,7 +96,7 @@ Game game = Main.instance.game;
             game.player.CurrAP = game.player.AP;
             enemyTurn();
         }
-        else if (game.player.CurrHP<0){     // проверка на несдохшесть, иначе при смерти можно продолжать игру до посинения
+        else if (game.player.CurrHP<1){     // проверка на несдохшесть, иначе при смерти можно продолжать игру до посинения
             makeattackbutton.setVisible(false);
         }
         else makeattackbutton.setVisible(true);
