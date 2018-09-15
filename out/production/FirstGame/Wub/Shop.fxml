@@ -16,6 +16,9 @@
                <padding>
                   <Insets top="10.0" />
                </padding>
+               <children>
+                  <Button fx:id="buy" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Купить" textFill="WHITE" />
+               </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>

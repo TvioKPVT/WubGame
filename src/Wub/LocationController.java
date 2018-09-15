@@ -4,6 +4,8 @@ package Wub;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,8 +16,9 @@ public class LocationController {
     public Label pend;
     public Label pagi;
     public Label pcurrhp;
-    public Label loctext;
     public Label pspecies;
+    public Text text1 = new Text(" ");
+    public TextFlow localtext;
 
     public Button gotocave;
     public Button explore;
@@ -30,9 +33,20 @@ public class LocationController {
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
 
-    public void exploring(){
+    public void Formattext(){
+        int a = 0;
+        String n = text1.getText();
+        if (n.contains("\n")){
+            a++;
+        }
+        System.out.println(n+"1");
+        System.out.println(a + " Число строк");
+    }
+
+    public void Exploring(){
         Dice dice = new Dice();
         int a = dice.d10();
+        Formattext();
         if (game.player.currloc == "forest") {
             if (a <= 3) {
 
@@ -42,31 +56,40 @@ public class LocationController {
                     e1.printStackTrace();
                 }
             } else if (a >= 6 && a <= 7 && game.player.cave == false) {
-                String n = loctext.getText();
-                loctext.setText(n + TextVar.LocationsText.obtaining_caves);
+                //String n = text1.getText();
+
+                text1 = new Text(TextVar.LocationsText.obtaining_caves);
+                localtext.getChildren().add(text1);
+
                 gotocave.setVisible(true);
                 game.player.cave = true;
             } else if (a >= 4 && a <= 5 && game.player.city == false) {
-                String n = loctext.getText();
-                loctext.setText(n + TextVar.LocationsText.obtaining_city);
+               // String n = text1.getText();
+
+
+                text1 = new Text( TextVar.LocationsText.obtaining_city);
+                localtext.getChildren().add(text1);
                 gotocity.setVisible(true);
                 game.player.city = true;
             } else {
-                rollforlut();
+                Rollforlut();
             }
         }
         else if (game.player.currloc == "city"){
 
             if (a <= 3 && game.player.city_trader == false) {
-                String n = loctext.getText();
+                //String n = text1.getText();
                 game.player.city_trader = true;
-                loctext.setText(n + TextVar.LocationsText.obtaining_shop);
+
+                text1 = new Text(TextVar.LocationsText.obtaining_shop);
+                localtext.getChildren().add(text1);
                 gotoshop.setVisible(true);
 
             } else {
-                String n = loctext.getText();
+                String n = text1.getText();
 
-                loctext.setText(n + TextVar.LocationsText.nothing);
+                text1 = new Text(TextVar.LocationsText.nothing);
+                localtext.getChildren().add(text1);
 
             }
 
@@ -74,20 +97,24 @@ public class LocationController {
 
     }
 
-    public void rollforlut(){
+    public void Rollforlut(){
        // Dice dice = new Dice();
         //int n = dice.d10();
         //if (n <2){
-            String w = loctext.getText();
+            String w = text1.getText();
             Thing berry = PredefinedItems.collection.get("berry");
             game.player.inventory.add(berry);
-            loctext.setText(w+ MessageFormat.format ( TextVar.LocationsText.berry_gained, berry) );
+
+            text1 = new Text(w +  MessageFormat.format ( TextVar.LocationsText.berry_gained, berry));
+            localtext.getChildren().add(text1);
         //}
     }
 
     //переключение сцены на пещеры
-    public void gotocaves(){
-        loctext.setText(TextVar.LocationsText.cave_on_enter);
+    public void Gotocaves(){
+
+        text1 = new Text(TextVar.LocationsText.cave_on_enter);
+        localtext.getChildren().add(text1);
         game.player.currloc = "caves";
         gotocave.setText(TextVar.LocationsText.gotoforest_button);
 
@@ -104,23 +131,26 @@ public class LocationController {
                 }
             }
             else {
-                rollforlut();
+                Rollforlut();
             }
 
 
         });
 
         gotocave.setOnAction(e->{
-            gotoforest();
+            Gotoforest();
 
     });
     }
 //переключение сцены на лес. Так же участвует в инициализации стартовой локации.
-    public void gotoforest(){
-        loctext.setText(TextVar.LocationsText.forest_on_enter);
+    public void Gotoforest(){
+        Formattext();
+
+        text1 = new Text(TextVar.LocationsText.forest_on_enter);
+        localtext.getChildren().add(text1);
         game.player.currloc = "forest";
-        gotocave.setOnAction(e->gotocaves());
-        gotocity.setOnAction(e-> gotocity());
+        gotocave.setOnAction(e-> Gotocaves());
+        gotocity.setOnAction(e-> Gotocity());
 
         if (game.player.cave== false){
             gotocave.setVisible(false);
@@ -148,13 +178,15 @@ public class LocationController {
         gotocity.setText(TextVar.LocationsText.gotocity_button);
 
         explore.setOnAction(e ->{
-            exploring();
+            Exploring();
                     });
 
     }
 
-    public void gotocity() {
-        loctext.setText(TextVar.LocationsText.city_on_enter);
+    public void Gotocity() {
+
+        text1 = new Text(TextVar.LocationsText.city_on_enter);
+        localtext.getChildren().add(text1);
         game.player.currloc = "city";
         gotocity.setText("Вернуться в лес");
 
@@ -169,7 +201,7 @@ public class LocationController {
         gotocave.setVisible(false);
 
         gotocity.setOnAction(e -> {
-            gotoforest();
+            Gotoforest();
         });
     }
 
@@ -179,13 +211,13 @@ public class LocationController {
 
         //Проверка на локацию при выходе из инвентаря.
         if (game.player.currloc == "city"){
-            gotocity();
+            Gotocity();
         }
         else if (game.player.currloc == "caves"){
-            gotocaves();
+            Gotocaves();
         }
         else {
-            gotoforest();
+            Gotoforest();
         }
 
 
@@ -206,8 +238,8 @@ public class LocationController {
 
 
 
-        gotocave.setOnAction(e-> gotocaves());
-        gotocity.setOnAction(e-> gotocity());
+        gotocave.setOnAction(e-> Gotocaves());
+        gotocity.setOnAction(e-> Gotocity());
 
         inventory.setOnAction(e->{
             try {

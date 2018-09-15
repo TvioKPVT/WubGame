@@ -25,22 +25,22 @@ public class TextVar {
    }
 
    static class LocationsText extends TextVar{
-       static String berry_gained = "\nВы полутали {0}.";
+       static String berry_gained = "Вы полутали {0}.\n";
 
-       static String obtaining_shop = "'\nВы нашли гамазин!";
+       static String obtaining_shop = "Вы нашли гамазин!\n";
        static String gotoshop_button = "В гамазин";
        static String start_button = "Старт";
-       static String cave_on_enter = "Вы в пещере. Тут мокро и воняет.";
+       static String cave_on_enter = "Вы в пещере. Тут мокро и воняет.\n";
        static String gotoforest_button = "Вернуться в лес";
-       static String forest_on_enter = "Вы в лесу. Тут лесяво.aisfhakjsfhlashflashflashflkhaslkfhkasfhlkashflkashflahsklfhalkshflkashflkhaslfkhasklfhalkshflkashflkahsklfhasklfhfalkshflkahflkash";
+       static String forest_on_enter = "Вы в лесу. Тут лесяво.\n";
        static String gotocave_button = "В пещеры";
        static String gotocity_button = "В город";
-       static String obtaining_caves = "\nВы нашли пещеры!";
-       static String obtaining_city = "\nВы нашли город!";
-       static String city_on_enter = "Вы в городе. Тут всякое";
+       static String obtaining_caves = "Вы нашли пещеры!\n";
+       static String obtaining_city = "Вы нашли город!\n";
+       static String city_on_enter = "Вы в городе. Тут всякое\n";
        static String explore_button = "Исследовать окрестности";
        static String inv_button = "Инвентарь";
-       static String nothing = "\nНихуяшеньки";
+       static String nothing = "Нихуяшеньки\n";
 
    }
 

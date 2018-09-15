@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wub.LocationController">
     <left>
@@ -29,12 +30,16 @@
     </right>
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label fx:id="loctext" text="LocText" textFill="WHITE" />
-            </children>
          <padding>
             <Insets left="5.0" top="5.0" />
          </padding>
+         <children>
+            <TextFlow fx:id="localtext" prefHeight="291.0" prefWidth="382.0" style="-fx-background-color: #333333;" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets bottom="1.0" />
+               </VBox.margin>
+            </TextFlow>
+         </children>
         </VBox>
     </center>
    <bottom>
