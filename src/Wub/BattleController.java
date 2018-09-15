@@ -3,6 +3,8 @@ package Wub;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -18,17 +20,17 @@ public Label estr;
 public Label eend;
 public Label ecap;
 public Label ecurrhp;
-public Label battletext;
+public Text battletext = new Text("");
 public Label especies;
 public Label eweapon;
-public Button makeattackbutton;
+public TextFlow battlescreen;
 
+public Button makeattackbutton;
 public Button youwin;
 public Button tryagain;
 
 public ProgressBar playerhp;
 public ProgressBar enemyhp;
-public ScrollPane battlescroll;
 
 
 
@@ -40,14 +42,21 @@ public Enemy enemy = new Enemy();
 
 Game game = Main.instance.game;
 
+    public void Formattext(){
+        battletext = new Text("");
+    }
+
 
 
     //ответочка
     public void enemyTurn() {
         while (enemy.CurrAP>=enemy.weapon.apcost){
             if (dice.d100()-20<enemy.ChanceToHit) { //временно увеличил шанс на попадание. Ввести скиллы и убрать
-                String k = battletext.getText();
-                battletext.setText(k + MessageFormat.format(TextVar.Battle.enemy_deal_damage,Integer.toString(enemy.attack(game.player))));
+                Formattext();
+
+                battletext = new Text(MessageFormat.format(TextVar.Battle.enemy_deal_damage,Integer.toString(enemy.attack(game.player))));
+                battlescreen.getChildren().add(battletext);
+
                 enemy.CurrAP = enemy.CurrAP - enemy.weapon.apcost;
                 playerhp.setProgress(game.player.percentHP());
                 pcurrhp.setText("HP: " + Integer.toString(game.player.CurrHP));
@@ -57,16 +66,18 @@ Game game = Main.instance.game;
                 //проверка на смерть игрока
                 if (game.player.isAlive == false) {
 
-
-                    battletext.setText(k + TextVar.Battle.you_died);
+                    Formattext();
+                    battletext = new Text(TextVar.Battle.you_died);
+                    battlescreen.getChildren().add(battletext);
                     tryagain.setVisible(true);
                     makeattackbutton.setVisible(false);
 
                 }
             }
             else{
-                String k = battletext.getText();
-                battletext.setText(k+ TextVar.Battle.enemy_missed);
+                Formattext();
+                battletext = new Text(TextVar.Battle.enemy_missed);
+                battlescreen.getChildren().add(battletext);
                 enemy.CurrAP = enemy.CurrAP - enemy.weapon.apcost;
 
             }
@@ -80,17 +91,20 @@ Game game = Main.instance.game;
 
     public void rollforlut(){
 
-        String w = battletext.getText();
+
         Dice dice = new Dice();
         int n = dice.d10();//заготовка для ролла лута, когда его будет больше, чем просто одна ягодка.
         Thing berry = PredefinedItems.collection.get("berry");
         game.player.money+=n;
         game.player.inventory.add(berry);
-        battletext.setText(w+MessageFormat.format(TextVar.Battle.loot,berry,n) );
+        Formattext();
+        battletext = new Text(MessageFormat.format(TextVar.Battle.loot,berry,n) );
+        battlescreen.getChildren().add(battletext);
 
     }
 
     public void apcheck(){
+        Formattext();
         if (game.player.CurrAP<game.player.weapon.apcost) {
             makeattackbutton.setVisible(false);
             game.player.CurrAP = game.player.AP;
@@ -142,21 +156,23 @@ public void initialize(){
     tryagain.setVisible(false);
     youwin.setVisible(false);
 
-    battlescroll.setStyle("-fx-background: #333333");
 
+    Formattext();
 
-    battletext.setText(TextVar.Battle.enemy_detected);
+    battletext = new Text(TextVar.Battle.enemy_detected);
+    battlescreen.getChildren().add(battletext);
 
     //кнопка атаки.
     makeattackbutton.setOnAction(e -> {
         if (dice.d100()-20<game.player.ChanceToHit){  //временно увеличил шанс на попадание. Ввести скиллы и убрать
 
-            String w = battletext.getText();
-
-            battletext.setText(w+ MessageFormat.format(TextVar.Battle.player_deal_damage,Integer.toString(game.player.attack(enemy))) );
+            Formattext();
+            battletext= new Text(MessageFormat.format(TextVar.Battle.player_deal_damage,Integer.toString(game.player.attack(enemy))) );
+            battlescreen.getChildren().add(battletext);
             ecurrhp.setText("HP: " + Integer.toString(enemy.CurrHP));
             pcap.setText(String.valueOf("AP: " + Integer.toString(game.player.CurrAP)));
             enemyhp.setProgress(enemy.percentHP());
+
             apcheck();
 
                 //проверка на смерть врага
@@ -164,16 +180,18 @@ public void initialize(){
                     makeattackbutton.setVisible(false);
 
                     youwin.setVisible(true);
-                    battletext.setText(w + TextVar.Battle.enemy_died);
+                    Formattext();
+                    battletext = new Text(TextVar.Battle.enemy_died);
+                    battlescreen.getChildren().add(battletext);
                     game.player.EXP += enemy.EXPforkill;
                     rollforlut();
                 }
 
         }
         else {
-            String w = battletext.getText();
-
-            battletext.setText(w+TextVar.Battle.player_missed );
+            Formattext();
+            battletext=new Text(TextVar.Battle.player_missed );
+            battlescreen.getChildren().add(battletext);
             game.player.CurrAP= game.player.CurrAP - game.player.weapon.apcost;
             pcap.setText(String.valueOf("AP: " + Integer.toString(game.player.CurrAP)));
             apcheck();
