@@ -33,14 +33,8 @@ public class LocationController {
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
 
-    public void Formattext(){
-        int a = 0;
-        String n = text1.getText();
-        if (n.contains("\n")){
-            a++;
-        }
-        System.out.println(n+"1");
-        System.out.println(a + " Число строк");
+    public void Formattext() {
+        text1 = new Text("");
     }
 
     public void Exploring(){
@@ -57,7 +51,7 @@ public class LocationController {
                 }
             } else if (a >= 6 && a <= 7 && game.player.cave == false) {
                 //String n = text1.getText();
-
+                Formattext();
                 text1 = new Text(TextVar.LocationsText.obtaining_caves);
                 localtext.getChildren().add(text1);
 
@@ -66,7 +60,7 @@ public class LocationController {
             } else if (a >= 4 && a <= 5 && game.player.city == false) {
                // String n = text1.getText();
 
-
+                Formattext();
                 text1 = new Text( TextVar.LocationsText.obtaining_city);
                 localtext.getChildren().add(text1);
                 gotocity.setVisible(true);
@@ -81,13 +75,13 @@ public class LocationController {
                 //String n = text1.getText();
                 game.player.city_trader = true;
 
+                Formattext();
                 text1 = new Text(TextVar.LocationsText.obtaining_shop);
                 localtext.getChildren().add(text1);
                 gotoshop.setVisible(true);
 
             } else {
-                String n = text1.getText();
-
+                Formattext();
                 text1 = new Text(TextVar.LocationsText.nothing);
                 localtext.getChildren().add(text1);
 
@@ -104,7 +98,7 @@ public class LocationController {
             String w = text1.getText();
             Thing berry = PredefinedItems.collection.get("berry");
             game.player.inventory.add(berry);
-
+            Formattext();
             text1 = new Text(w +  MessageFormat.format ( TextVar.LocationsText.berry_gained, berry));
             localtext.getChildren().add(text1);
         //}
@@ -112,7 +106,7 @@ public class LocationController {
 
     //переключение сцены на пещеры
     public void Gotocaves(){
-
+        Formattext();
         text1 = new Text(TextVar.LocationsText.cave_on_enter);
         localtext.getChildren().add(text1);
         game.player.currloc = "caves";
@@ -184,7 +178,7 @@ public class LocationController {
     }
 
     public void Gotocity() {
-
+        Formattext();
         text1 = new Text(TextVar.LocationsText.city_on_enter);
         localtext.getChildren().add(text1);
         game.player.currloc = "city";
@@ -207,6 +201,7 @@ public class LocationController {
 
 //инициализация уровня на старте.
     public void initialize(){
+
 
 
         //Проверка на локацию при выходе из инвентаря.
