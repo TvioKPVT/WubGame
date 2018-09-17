@@ -44,6 +44,7 @@ Game game = Main.instance.game;
 
     public void Formattext(){
         battletext = new Text("");
+
     }
 
 
@@ -167,13 +168,16 @@ public void initialize(){
         if (dice.d100()-20<game.player.ChanceToHit){  //временно увеличил шанс на попадание. Ввести скиллы и убрать
 
             Formattext();
+
             battletext= new Text(MessageFormat.format(TextVar.Battle.player_deal_damage,Integer.toString(game.player.attack(enemy))) );
             battlescreen.getChildren().add(battletext);
+
             ecurrhp.setText("HP: " + Integer.toString(enemy.CurrHP));
             pcap.setText(String.valueOf("AP: " + Integer.toString(game.player.CurrAP)));
             enemyhp.setProgress(enemy.percentHP());
 
             apcheck();
+
 
                 //проверка на смерть врага
                 if (enemy.isAlive == false) {

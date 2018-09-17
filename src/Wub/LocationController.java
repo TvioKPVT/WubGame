@@ -30,8 +30,10 @@ public class LocationController {
 
 
 
+
     Game game = Main.instance.game;
     Stage parentWindow = Main.instance.parentWindow;
+
 
     public void Formattext() {
         text1 = new Text("");
@@ -204,6 +206,7 @@ public class LocationController {
 
 
 
+
         //Проверка на локацию при выходе из инвентаря.
         if (game.player.currloc == "city"){
             Gotocity();
@@ -229,6 +232,7 @@ public class LocationController {
         explore.setText(TextVar.LocationsText.explore_button);
         inventory.setText(TextVar.LocationsText.inv_button);
         gotoshop.setText(TextVar.LocationsText.gotoshop_button);
+
 
 
 

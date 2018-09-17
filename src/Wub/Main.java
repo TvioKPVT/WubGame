@@ -30,10 +30,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         parentWindow = primaryStage;
+
         Parent root = FXMLLoader.load(getClass().getResource("StartOfTheGame.fxml"));
         Scene scene = new Scene(root);
 
         //parentWindow.initStyle(StageStyle.UNDECORATED);  //убрать кнопки управления окном.
+        parentWindow.setMaximized(true);
         parentWindow.setTitle("Заебись игра");
         parentWindow.setScene(scene);
         parentWindow.show();
@@ -41,15 +43,20 @@ public class Main extends Application {
     }
 
     public void switchScene(String filename) throws IOException {
+
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(filename));
+
+
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         Scene scene = new Scene(root);
+
         parentWindow.setScene(scene);
+
 
     }
 }

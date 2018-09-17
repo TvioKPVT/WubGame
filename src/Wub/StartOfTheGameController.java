@@ -14,6 +14,7 @@ public class StartOfTheGameController {
 
         start.setOnAction(e->{
             try {
+
                 Main.instance.switchScene("Location.fxml");
             } catch (IOException e1) {
                 e1.printStackTrace();
