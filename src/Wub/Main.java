@@ -2,8 +2,10 @@ package Wub;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -53,7 +55,11 @@ public class Main extends Application {
             e1.printStackTrace();
         }
 
-        Scene scene = new Scene(root);
+        //оставь пока тут на всякий случай, возможно потом окажется решением получше
+        //Rectangle2D screenSize = Screen.getPrimary().getVisualBounds(); //getting screen (not window!) size. Desirable for the forced fullscreen app
+        //Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());  // setup new scene, keeping the current screen size
+
+        Scene scene = new Scene(root, parentWindow.getScene().getWidth(), parentWindow.getScene().getHeight());  // setup new scene with persistent scene size
 
         parentWindow.setScene(scene);
 
